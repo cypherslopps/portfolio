@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    background-color: #242424;
+    color: rgba(255, 255, 255, 0.87);
+  }
+
+  .hamburger_ele,
+  .hamburger_ele:before,
+  .hamburger_ele:after {
+    transition: all .3s ease-in-out;
+  }
+
+  .hamburger_ele:before,
+  .hamburger_ele:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: inherit;
+  }
+
+  .hamburger_ele:after {
+    top: -0.4rem;
+  }
+
+  .hamburger_ele:before {
+    top: 0.4rem;
+  }
+
+  .hamburger_ele.active:after {
+    display: none;
+  }
+
+  .hamburger_ele.active {
+    transform: rotate(-45deg);
+  }
+
+  .hamburger_ele.active:before {
+    top: 0;
+    transform: rotate(90deg);
+  }
+}

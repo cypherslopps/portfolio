@@ -24,7 +24,7 @@ export default function Footer() {
           <div className="w-1/2">
             <h3 className="text-lg font-semibold mb-4 text-white/90">About Me</h3>
             <p className="text-white/70 mb-4">
-              I'm a passionate software engineer specializing in building exceptional digital experiences. With a focus
+              {"I'm"} a passionate software engineer specializing in building exceptional digital experiences. With a focus
               on creating elegant, efficient, and user-friendly applications.
             </p>
 

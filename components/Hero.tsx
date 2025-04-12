@@ -7,7 +7,6 @@ import { StarBorder } from "@/components/ui/star-border"
 import { ParticlesBackground } from "@/components/ui/particles-background"
 import { FloatingGradient } from "@/components/ui/floating-gradient"
 import { AnimatedText } from "@/components/ui/animated-text"
-import { CpuArchitecture } from "@/components/ui/cpu-architecture"
 
 function Hero() {
   const containerRef = useRef<HTMLDivElement>(null)
@@ -18,7 +17,6 @@ function Hero() {
   const titleY = useTransform(scrollY, [0, 300], [0, -100])
   const subtitleOpacity = useTransform(scrollY, [0, 200], [1, 0])
   const buttonsOpacity = useTransform(scrollY, [0, 250], [1, 0])
-  const socialOpacity = useTransform(scrollY, [0, 300], [1, 0])
 
   const handleScroll = () => {
     const projectsSection = document.getElementById("projects")
@@ -66,7 +64,7 @@ function Hero() {
           width={600}
           height={140}
           rotate={12}
-          gradient="from-purple-500/[0.15]"
+          gradient="from-purple-500/15"
           className="left-[-10%] md:left-[-5%] top-[15%] md:top-[20%]"
         />
 
@@ -75,7 +73,7 @@ function Hero() {
           width={500}
           height={120}
           rotate={-15}
-          gradient="from-cyan-500/[0.15]"
+          gradient="from-cyan-500/[5]"
           className="right-[-5%] md:right-[0%] top-[70%] md:top-[75%]"
         />
 
@@ -87,18 +85,6 @@ function Hero() {
           gradient="from-violet-500/[0.15]"
           className="left-[5%] md:left-[10%] bottom-[5%] md:bottom-[10%]"
         />
-      </motion.div>
-
-      {/* CPU Architecture Background */}
-      <motion.div
-        className="absolute inset-0 flex items-center justify-center opacity-10"
-        style={{
-          x: mousePosition.x * 20,
-          y: mousePosition.y * 20,
-          scale: useTransform(scrollY, [0, 300], [1, 1.2]),
-        }}
-      >
-        <CpuArchitecture width="80%" height="80%" text="" />
       </motion.div>
 
       {/* Content */}
@@ -153,13 +139,13 @@ function Hero() {
         </div>
 
         <motion.p
-          className="text-base sm:text-lg text-white/50 mb-8 leading-relaxed font-light tracking-wide max-w-xl mx-auto"
+          className="text-base sm:text-lg text-white/50 mb-8 leading-relaxed font-light tracking-wide max-w-2xl mx-auto"
           style={{ opacity: subtitleOpacity }}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
         >
-          I specialize in transforming ideas into functional, exceptional digital experiences through innovative design and cutting-edge technology. Let's discuss your next project
+          I specialize in transforming ideas into functional, exceptional digital experiences/app through innovative design and cutting-edge technology. {"Let's"} discuss your next project
         </motion.p>
 
         {/* CTAs */}
@@ -200,18 +186,11 @@ function Hero() {
             onClick={handleScroll}
           >
             <motion.span
-              className="flex items-center"
+              className="font-bold flex items-center"
               whileHover={{ y: 5 }}
               transition={{ type: "spring", stiffness: 400, damping: 10 }}
             >
-              See My Work
-              <motion.span
-                className="ml-2"
-                animate={{ y: [0, 5, 0] }}
-                transition={{ duration: 1.5, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
-              >
-                ↓
-              </motion.span>
+              {"Let's"} connect
             </motion.span>
           </StarBorder>
         </motion.div>

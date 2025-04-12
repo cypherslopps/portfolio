@@ -22,7 +22,7 @@ const ProjectCard: FC<IProject> = ({ title, company, year, link, image, results 
         />
         <div className="lg:grid lg:grid-cols-2 lg:gap-16">
           <div className="lg:pb-16">
-            <div className="bg-gradient-to-r from-emerald-300 to-sky-400 inline-flex gap-x-2 font-bold uppercase tracking-widest text-sm text-transparent bg-clip-text">
+            <div className="bg-gradient-to-r from-purple-300 to-cyan-400 inline-flex gap-x-2 font-bold uppercase tracking-widest text-sm text-transparent bg-clip-text">
               <span>{company}</span>
               <span>&bull;</span>
               <span>{year}</span>
@@ -70,10 +70,10 @@ const ProjectCard: FC<IProject> = ({ title, company, year, link, image, results 
 
 const Projects = () => {
   return (
-    <section className='wrapper wrapper-overlay space-y-10 pb-16'>
+    <section className='wrapper wrapper-overlay space-y-10 pb-16 lg:pt-10'>
       <header className="flex flex-col items-center">
         <div className="flex justify-center">
-          <p className="uppercase font-semibold tracking-widest bg-gradient-to-r from-emerald-300 to-sky-400 text-transparent bg-clip-text">Real-World Results</p>
+          <p className="uppercase font-semibold tracking-widest bg-gradient-to-r from-purple-300 to-cyan-300 text-transparent bg-clip-text">Real-World Results</p>
         </div>
         <h2 className="heading !text-white mt-3">Featured Projects</h2>
         <p className="text-white/60 mx-auto text-center md:text-lg max-w-md">See how I transformed concepts into engaging digital experiences.</p>

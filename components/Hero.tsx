@@ -159,7 +159,7 @@ function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
         >
-          Crafting exceptional digital experiences through innovative design and cutting-edge technology.
+          I specialize in transforming ideas into functional, exceptional digital experiences through innovative design and cutting-edge technology. Let's discuss your next project
         </motion.p>
 
         {/* CTAs */}

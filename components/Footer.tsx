@@ -1,7 +1,7 @@
-import { contact, socials } from "@/lib/constants"
-import { Github, Linkedin, Mail, Twitter } from "lucide-react"
+import { contact, socials } from "@/lib/constants";
 import Link from "next/link"
 import { FC } from "react"
+import { ISocial } from ".."
 
 const FooterSocialLink: FC<ISocial> = ({ title, link, Icon }) => {
   return (

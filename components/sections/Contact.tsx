@@ -16,9 +16,9 @@ const Contact = () => {
           />
           <div className="flex flex-col md:flex-row items-center gap-8 md:gap-16">
             <div className="flex-1">
-              <h2 className="text-2xl md:text-3xl font-bold">Let's create something amazing together</h2>
+              <h2 className="text-2xl md:text-3xl font-bold">{"Let's"} create something amazing together</h2>
               <p className="text-sm md:text-base mt-2 opacity-90">
-                Ready to bring your next project to life? Let's connect and discuss how I can help you achieve your goals.
+                Ready to bring your next project to life? {"Let's"} connect and discuss how I can help you achieve your goals.
               </p>
             </div>
             <Button className="bg-gray-900 w-max px-6 border border-gray-950 h-12 rounded-xl gap-2">

@@ -1,4 +1,4 @@
-import React, { ComponentPropsWithoutRef, FC, HTMLAttributes } from 'react'
+import React, { ComponentPropsWithoutRef } from 'react'
 import Grain from "@/assets/grain.jpg";
 import { cn } from '@/lib/utils';
 

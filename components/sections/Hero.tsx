@@ -182,14 +182,15 @@ function Hero() {
             color="#06b6d4"
             speed="7s"
             className="cursor-pointer hover:scale-105 transition-all duration-300 hover:shadow-[0_0_15px_rgba(6,182,212,0.3)]"
-            btnClassName="bg-white text-black"
+            btnClassName="bg-white text-black border-none"
             onClick={handleScroll}
           >
             <motion.span
-              className="font-bold flex items-center"
+              className="font-bold flex items-center gap-x-1.5"
               whileHover={{ y: 5 }}
               transition={{ type: "spring", stiffness: 400, damping: 10 }}
             >
+              <span className="text-xl">👏</span>
               {"Let's"} connect
             </motion.span>
           </StarBorder>

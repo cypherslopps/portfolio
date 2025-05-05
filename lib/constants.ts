@@ -1,13 +1,13 @@
 import Icons from "@/components/Icons";
 
 // Assets
-import Project1Image from "@/public/project-1.png";
+import Project1Image from "@/assets/project-1.png";
 import { IProject, ISocial } from "..";
 
 // Avatars
-import Avatar1 from "@/public/memoji-avatar-3.png";
-import Avatar2 from "@/public/memoji-avatar-5.png";
-import Avatar3 from "@/public/memoji-avatar-3.png";
+import Avatar1 from "@/assets/memoji-avatar-3.png";
+import Avatar2 from "@/assets/memoji-avatar-5.png";
+import Avatar3 from "@/assets/memoji-avatar-3.png";
 
 export const contact = {
     mobileNumber: "08028456343",
@@ -24,7 +24,7 @@ export const socials: ISocial[] = [
         Icon: Icons.github
     },
     {
-        title: "X",
+        title: "Twitter",
         link: "https://x.com/josephibok36",
         Icon: Icons.x
     },
@@ -37,11 +37,6 @@ export const socials: ISocial[] = [
         title: "WhatsApp",
         link: `https://whatsapp.com/${contact.whatsapp}`,
         Icon: Icons.whatsapp
-    },
-    {
-        title: "Mail",
-        link: `mailto:${contact.mail}`,
-        Icon: Icons.mail
     }
 ]
 

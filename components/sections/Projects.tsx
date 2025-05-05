@@ -3,14 +3,23 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 import { projects } from '@/lib/constants'
-import { IProject } from '..'
-import Icons from './Icons'
-import SectionHeader from './SectionHeader'
-import Card from './Card'
+import { IProject } from '../..'
+import Icons from '../Icons'
+import SectionHeader from '../SectionHeader'
+import Card from '../Card'
 
-const ProjectCard: FC<IProject> = ({ title, company, year, link, image, results }) => {
+interface ProjectCardProps extends IProject {
+  projectIndex: number
+}
+
+const ProjectCard: FC<ProjectCardProps> = ({ title, company, year, link, image, results, projectIndex }) => {
   return (
-    <Card className="px-8 pt-8 md:pt-12 md:px-10 lg:pt-16 lg:px-20">
+    <Card 
+      wrapperClassName="px-8 pt-8 md:pt-12 md:px-10 lg:pt-16 lg:px-20 overflow-hidden sticky"
+      style={{
+        top: `calc(16px + ${projectIndex} + 40px)`
+      }}
+    >
       <div className="lg:grid lg:grid-cols-2 lg:gap-16">
         <div className="lg:pb-16">
           <div className="bg-gradient-to-r from-purple-300 to-cyan-400 inline-flex gap-x-2 font-bold uppercase tracking-widest text-sm text-transparent bg-clip-text">
@@ -46,11 +55,11 @@ const ProjectCard: FC<IProject> = ({ title, company, year, link, image, results 
           </Link>
         </div>
 
-        <div className="relative">
+        <div className="relative w-full">
           <Image 
             src={image}
             alt={title}
-            className="mt-8 lg:rounded-tl-3xl lg:mt-0 object-cover -mb-4 w-full lg:w-auto lg:max-w-none lg:mb-0 lg:absolute lg:h-full"
+            className="mt-8 lg:rounded-tl-3xl lg:mt-0 object-cover -mb-4 w-full lg:w-auto lg:max-w-none lg:mb-0 lg:absolute lg:h-full !rounded-br-4xl"
           />
         </div>
       </div>
@@ -68,9 +77,10 @@ const Projects = () => {
       />
 
       <div className="mt-10 md:mt-20 flex flex-col gap-y-20 container mx-auto">
-        {projects.map(project => (
+        {projects.map((project, idx) => (
           <ProjectCard 
-            key={project.title}
+            key={project.company}
+            projectIndex={idx}
             {...project}
           />
         ))}

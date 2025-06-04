@@ -37,7 +37,7 @@ function Hero() {
   return (
     <section
       ref={containerRef}
-      className="relative h-screen flex flex-col items-center justify-center px-4 overflow-hidden bg-[#030303]"
+      className="relative h-screen flex flex-col items-center justify-center px-4 overflow-hidden bg-[#030303] pt-12 sm:pt-0"
     >
       {/* Particles Background */}
       <ParticlesBackground count={150} />
@@ -93,7 +93,7 @@ function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.03] border border-white/[0.08] mb-8 backdrop-blur-sm"
+          className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.03] border border-white/[0.08] mb-6 sm:mb-8 backdrop-blur-sm"
         >
           <motion.div
             className="h-2 w-2 rounded-full bg-purple-500"

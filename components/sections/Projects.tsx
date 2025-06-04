@@ -12,7 +12,7 @@ const ProjectBlock = ({ project }: {project: IProject}) => {
   return (
     <blockquote 
       onClick={() => project.link ? window.open(project.link, "_blank") : null}
-      className='bg-neutral-400/10 px-8 py-6 md:py-8 lg:py-8 cursor-pointer border-t last:border-b border-neutral-800 border-dotted flex flex-col justify-between group/project relative'
+      className='bg-neutral-400/10 p-4 sm:px-8 sm:py-6 md:py-8 lg:py-8 cursor-pointer border-t last:border-b border-neutral-800 border-dotted flex flex-col justify-between group/project relative'
     >
       <div className='absolute bottom-0 left-0 w-full h-0 group-hover/project:h-full transition-all duration-500 bg-background/50' />
       <div className='relative'>
@@ -27,11 +27,19 @@ const ProjectBlock = ({ project }: {project: IProject}) => {
         )}
 
         <div className='flex items-center justify-between mt-5 md:mt-0 md:grid md:[grid-template-columns:1fr_300px_max-content] md:gap-8'>
-          <div className='lg:group-hover/project:pl-4 transition-all duration-700 flex flex-col gap-y-3'>
-            <h3 className='text-4xl text-white font-bold'>{project.title}</h3>
-            <div className='flex gap-x-3 text-sm items-center w-[100%] md:w-[115%]'>
-              <span className='inline-block relative after:absolute after:bottom-0 after:left-0 after:w-full after:h-[.1rem] after:bg-primary/70 after:rounded-full after:rotate-[-1deg]'>Technologies:</span>
-              <div className='flex gap-x-1 gap-y-3 items-center flex-wrap'>
+          <div className='lg:group-hover/project:pl-4 transition-all duration-700 flex flex-col gap-y-2 sm:gap-y-3'>
+            <header className="flex items-center justify-between sm:inline-block">
+              <h3 className='text-[1.73rem] sm:text-4xl text-white font-bold'>{project.title}</h3>
+              <div className='sm:hidden lg:group-hover/project:pr-4 transition-all duration-700'>
+                <HugeiconsIcon 
+                  className='text-neutral-400 size-7'
+                  icon={ArrowUpRight03FreeIcons} 
+                />
+              </div>
+            </header>
+            <div className='flex flex-col gap-y-2 sm:flex-row sm:gap-x-3 text-sm sm:items-center w-[100%] md:w-[115%]'>
+              <span className='w-max inline-block relative after:absolute after:bottom-0 after:left-0 after:w-full after:h-[.2rem] after:bg-primary/70 after:rounded-full after:rotate-[-1deg]'>Technologies:</span>
+              <div className='flex gap-x-1 gap-y-1 sm:gap-y-3 items-center flex-wrap'>
                 {project.stacks.length > 0 && project.stacks.map((stack, idx) => (
                   <span key={idx} className='text-xs md:text-md bg-[#222] shadow-sm shadow-neutral-900 rounded-md py-1 px-2'>{stack}</span>
                 ))}
@@ -50,7 +58,7 @@ const ProjectBlock = ({ project }: {project: IProject}) => {
            )}
           </div>
           {project.link.length && (
-            <div className='lg:group-hover/project:pr-4 transition-all duration-700'>
+            <div className='hidden sm:inline-block lg:group-hover/project:pr-4 transition-all duration-700'>
               <HugeiconsIcon 
                 className='text-neutral-400 size-7'
                 icon={ArrowUpRight03FreeIcons} 

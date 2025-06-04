@@ -39,7 +39,7 @@ function Testimonials() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-10 sm:mb-16"
         >
           <h2 className="heading">
             Client Testimonials
@@ -80,7 +80,7 @@ function Testimonials() {
             </Button>
           </div>
 
-          <div className="overflow-hidden px-8">
+          <div className="overflow-hidden sm:px-8">
             <AnimatePresence mode="wait">
               <motion.div
                 key={activeIndex}
@@ -91,7 +91,7 @@ function Testimonials() {
                 className="flex flex-col items-center"
               >
                 <Card className="max-w-3xl mx-auto bg-white/[0.03] backdrop-blur-sm border-white/[0.08]">
-                  <CardContent className="pt-6 px-6 pb-8">
+                  <CardContent className="pt-6 sm:px-6 pb-8">
                     <div className="flex justify-center mb-6">
                       <div className="relative">
                         <Avatar className="h-20 w-20 bg-white/5 flex items-center justify-center">
@@ -103,12 +103,12 @@ function Testimonials() {
                       </div>
                     </div>
 
-                    <blockquote className="text-center mb-6 italic text-white/60">
+                    <blockquote className="text-center mb-4 sm:mb-6 italic text-white/60 text-[14.5px] sm:text-base">
                       {`"${testimonials[activeIndex].content}"`}
                     </blockquote>
 
-                    <div className="text-center">
-                      <h4 className="font-semibold text-white/90">{testimonials[activeIndex].name}</h4>
+                    <div className="text-center space-y-2 sm:space-y-1.5">
+                      <h4 className="font-semibold text-white/90 text-base">{testimonials[activeIndex].name}</h4>
                       <p className="text-sm text-white/60">{testimonials[activeIndex].role}</p>
                     </div>
                   </CardContent>

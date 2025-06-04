@@ -100,7 +100,7 @@ export function AnimatedText({
 
   return (
     <motion.div
-      className="flex flex-wrap"
+      className="flex flex-wrap justify-center"
       variants={container}
       initial="hidden"
       whileInView="visible"

@@ -81,11 +81,11 @@
 
 @layer utilities {
   .wrapper {
-    @apply relative py-20 px-4 md:px-8 overflow-hidden bg-[#030303]/70 before:absolute before:inset-0 before:bg-gradient-to-br before:from-purple-500/[0.05] before:via-transparent before:to-cyan-500/[0.05] before:blur-3xl;
+    @apply relative py-20 px-4 md:px-8 overflow-hidden bg-[#030303]/70 z-0 before:absolute before:inset-0 before:bg-gradient-to-br before:from-purple-500/[0.05] before:via-transparent before:to-cyan-500/[0.05] before:blur-3xl before:-z-10;
   }
 
   .heading {
-    @apply text-3xl md:text-5xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-purple-300 to-cyan-300
+    @apply tracking-tighter text-3xl md:text-5xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-purple-300 to-cyan-300
   }
 
   .subHeaderText {

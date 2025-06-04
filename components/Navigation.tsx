@@ -18,7 +18,7 @@ const Navigation = () => {
     return (
         <nav 
             ref={navRef}
-            className="fixed top-0 left-0 w-full px-12 py-7 z-50 flex items-center justify-between"
+            className="fixed top-0 left-0 w-full px-12 py-7 z-50 flex items-center justify-between backdrop-blur-sm"
         >
             <p 
                 className="text-white leading-none text-2xl font-extrabold inline-flex items-end gap-x-0.5"

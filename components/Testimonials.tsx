@@ -94,7 +94,7 @@ function Testimonials() {
                   <CardContent className="pt-6 px-6 pb-8">
                     <div className="flex justify-center mb-6">
                       <div className="relative">
-                        <Avatar className="h-20 w-20 bg-white/5 flex items-center justify-center pt-1.5">
+                        <Avatar className="h-20 w-20 bg-white/5 flex items-center justify-center">
                           <AvatarImage src={testimonials[activeIndex].image.src} alt={testimonials[activeIndex].name} />
                           <AvatarFallback className="bg-gradient-to-r from-purple-500 to-cyan-500 text-white">
                             {testimonials[activeIndex].name.charAt(0)}

@@ -1,91 +1,87 @@
-import React, { FC } from 'react'
+'use client'
+
+import { ArrowUpRight03FreeIcons } from "@hugeicons/core-free-icons"
+import { HugeiconsIcon } from "@hugeicons/react"
 import Image from 'next/image'
-import Link from 'next/link'
+import { IProject } from "@/index"
+import { projects } from "@/lib/constants"
+import SectionHeader from "../SectionHeader"
 
-import { projects } from '@/lib/constants'
-import { IProject } from '../..'
-import Icons from '../Icons'
-import SectionHeader from '../SectionHeader'
-import Card from '../Card'
 
-interface ProjectCardProps extends IProject {
-  projectIndex: number
-}
-
-const ProjectCard: FC<ProjectCardProps> = ({ title, company, year, link, image, results, projectIndex }) => {
+const ProjectBlock = ({ project }: {project: IProject}) => {
   return (
-    <Card 
-      wrapperClassName="px-8 pt-8 md:pt-12 md:px-10 lg:pt-16 lg:px-20 overflow-hidden sticky"
-      style={{
-        top: `calc(16px + ${projectIndex} + 40px)`
-      }}
+    <blockquote 
+      onClick={() => project.link ? window.open(project.link, "_blank") : null}
+      className='bg-neutral-400/10 px-8 py-6 md:py-8 lg:py-8 cursor-pointer border-t last:border-b border-neutral-800 border-dotted flex flex-col justify-between group/project relative'
     >
-      <div className="lg:grid lg:grid-cols-2 lg:gap-16">
-        <div className="lg:pb-16">
-          <div className="bg-gradient-to-r from-purple-300 to-cyan-400 inline-flex gap-x-2 font-bold uppercase tracking-widest text-sm text-transparent bg-clip-text">
-            <span>{company}</span>
-            <span>&bull;</span>
-            <span>{year}</span>
+      <div className='absolute bottom-0 left-0 w-full h-0 group-hover/project:h-full transition-all duration-500 bg-background/50' />
+      <div className='relative'>
+        {project.image && (
+          <div className='h-[15rem] md:hidden'>
+            <Image 
+              src={project.image} 
+              alt={project.title} 
+              className='w-full h-full size-full object-cover [background-position:top center]' 
+            />
           </div>
+        )}
 
-          <h3 className="text-2xl md:text-4xl mt-2 md:mt-3 font-bold">{title}</h3>
-          
-          {/* Divider */}
-          <hr className="border-t-2 border-white/5 mt-4 md:mt-5" />
-
-          {/* Results */}
-          <ul className="flex flex-col gap-4 mt-4 md:mt-5">
-            {results.map((result) => (
-              <li 
-                key={result.title}
-                className="flex items-center gap-2 text-sm md:text-base text-white/50"
-              >
-                <Icons.check className='size-5 md:size-6' />
-                {result.title}
-              </li>
-            ))}
-          </ul>
-
-          <Link
-            href={link}
-            className="bg-white text-gray-950 h-12 w-full md:w-auto px-8 rounded-xl font-semibold inline-flex items-center justify-center gap-2 mt-7"
-          >
-            Visit Live Site
-            <Icons.arrowUp className="size-4 rotate-45" />
-          </Link>
-        </div>
-
-        <div className="relative w-full">
-          <Image 
-            src={image}
-            alt={title}
-            className="mt-8 lg:rounded-tl-3xl lg:mt-0 object-cover -mb-4 w-full lg:w-auto lg:max-w-none lg:mb-0 lg:absolute lg:h-full !rounded-br-4xl"
-          />
+        <div className='flex items-center justify-between mt-5 md:mt-0 md:grid md:[grid-template-columns:1fr_300px_max-content] md:gap-8'>
+          <div className='lg:group-hover/project:pl-4 transition-all duration-700 flex flex-col gap-y-3'>
+            <h3 className='text-4xl text-white font-bold'>{project.title}</h3>
+            <div className='flex gap-x-3 text-sm items-center w-[100%] md:w-[115%]'>
+              <span className='inline-block relative after:absolute after:bottom-0 after:left-0 after:w-full after:h-[.1rem] after:bg-primary/70 after:rounded-full after:rotate-[-1deg]'>Technologies:</span>
+              <div className='flex gap-x-1 gap-y-3 items-center flex-wrap'>
+                {project.stacks.length > 0 && project.stacks.map((stack, idx) => (
+                  <span key={idx} className='text-xs md:text-md bg-[#222] shadow-sm shadow-neutral-900 rounded-md py-1 px-2'>{stack}</span>
+                ))}
+              </div>
+            </div>
+          </div>
+          <div className='relative [perspective: 800px] hidden md:block'>
+           {project.image && (
+             <div className='absolute w-[30rem] h-[15rem] top-1/2 -translate-y-1/2 right-5 opacity-0 scale-50 group-hover/project:opacity-100 lg:group-hover/project:scale-100 transition-all duration-500 z-10 rounded-md'>
+              <Image 
+                src={project.image} 
+                alt={project.title}
+                className='h-full object-cover rounded-md' 
+              />
+            </div>
+           )}
+          </div>
+          {project.link.length && (
+            <div className='lg:group-hover/project:pr-4 transition-all duration-700'>
+              <HugeiconsIcon 
+                className='text-neutral-400 size-7'
+                icon={ArrowUpRight03FreeIcons} 
+              />
+            </div>
+          )}
         </div>
       </div>
-    </Card>
+    </blockquote>
   )
 }
 
 const Projects = () => {
   return (
-    <section className='wrapper space-y-10 pb-16 lg:pt-10'>
+  <section id="projects" className="wrapper space-y-10 pb-16 lg:pt-10">
       <SectionHeader 
         headline="Real-World Results"
-        title="Featured Projects"
-        description="See how I transformed concepts into engaging digital experiences."
+        title="My Projects"
       />
 
-      <div className="mt-10 md:mt-20 flex flex-col gap-y-20 container mx-auto">
-        {projects.map((project, idx) => (
-          <ProjectCard 
-            key={project.company}
-            projectIndex={idx}
-            {...project}
-          />
-        ))}
+      <div className='w-full mt-10 bg-[#0a0b0d]'>
+        <div className='w-full relative grid grid-cols-1'>
+          {projects.map(project => (
+            <ProjectBlock 
+              key={project.title}
+              project={project}
+            />
+          ))}
+        </div>
       </div>
-    </section>  
+    </section>
   )
 }
 

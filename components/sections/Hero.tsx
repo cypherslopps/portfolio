@@ -7,6 +7,7 @@ import { StarBorder } from "@/components/ui/star-border"
 import { ParticlesBackground } from "@/components/ui/particles-background"
 import { FloatingGradient } from "@/components/ui/floating-gradient"
 import { AnimatedText } from "@/components/ui/animated-text"
+import { businessWhatsappLink, resumeLink } from "@/lib/constants";
 
 function Hero() {
   const containerRef = useRef<HTMLDivElement>(null)
@@ -17,13 +18,6 @@ function Hero() {
   const titleY = useTransform(scrollY, [0, 300], [0, -100])
   const subtitleOpacity = useTransform(scrollY, [0, 200], [1, 0])
   const buttonsOpacity = useTransform(scrollY, [0, 250], [1, 0])
-
-  const handleScroll = () => {
-    const projectsSection = document.getElementById("projects")
-    if (projectsSection) {
-      projectsSection.scrollIntoView({ behavior: "smooth" })
-    }
-  }
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -121,7 +115,7 @@ function Hero() {
 
         <div className="mb-6 flex flex-col items-center">
           <AnimatedText
-            text="Building Elegant"
+            text="Crafting Innovative"
             className="text-4xl sm:text-6xl font-bold tracking-tight text-white"
             animationType="wave"
             delay={0.1}
@@ -139,13 +133,13 @@ function Hero() {
         </div>
 
         <motion.p
-          className="text-base sm:text-lg text-white/50 mb-8 leading-relaxed font-light tracking-wide max-w-2xl mx-auto"
+          className="text-base sm:text-lg text-white/65 mb-8 leading-relaxed font-light tracking-wide max-w-2xl mx-auto"
           style={{ opacity: subtitleOpacity }}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
         >
-          I specialize in transforming ideas into functional, exceptional digital experiences/app through innovative design and cutting-edge technology. {"Let's"} discuss your next project
+          With over <span className="text-white font-extrabold">8 years</span> of experience, I build scalable apps and blockchain solutions that drive innovation and client success. Explore my projects below!
         </motion.p>
 
         {/* CTAs */}
@@ -160,21 +154,21 @@ function Hero() {
             color="#a855f7"
             speed="5s"
             className="group cursor-pointer hover:scale-105 transition-all duration-300 hover:shadow-[0_0_15px_rgba(168,85,247,0.3)]"
-            onClick={() => window.open("/resume.pdf", "_blank")}
+            onClick={() => window.open(resumeLink, "_blank")}
           >
             <motion.span
               className="flex items-center"
               whileHover={{ x: 5 }}
               transition={{ type: "spring", stiffness: 400, damping: 10 }}
             >
-              View Resume
-              <motion.span
-                className="ml-2"
-                animate={{ x: [0, 5, 0] }}
-                transition={{ duration: 1.5, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
-              >
-                →
-              </motion.span>
+                View Resume
+                <motion.span
+                  className="ml-2"
+                  animate={{ x: [0, 5, 0] }}
+                  transition={{ duration: 1.5, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
+                >
+                  →
+                </motion.span>
             </motion.span>
           </StarBorder>
 
@@ -183,7 +177,7 @@ function Hero() {
             speed="7s"
             className="cursor-pointer hover:scale-105 transition-all duration-300 hover:shadow-[0_0_15px_rgba(6,182,212,0.3)]"
             btnClassName="bg-white text-black border-none"
-            onClick={handleScroll}
+            onClick={() => window.open(businessWhatsappLink, "_blank")}
           >
             <motion.span
               className="font-bold flex items-center gap-x-1.5"

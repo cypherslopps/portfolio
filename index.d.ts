@@ -6,15 +6,9 @@ interface ISocial {
     Icon: any
 }
 
-interface IProjectResult {
-    title: string;
-}
-
-interface IProject {
-    company: string;
-    year: string;
-    title: string;
-    results: IProjectResult[];
-    link: string;
-    image: StaticImageData | string;
-}
+type IProject = {
+    title: string,
+    image: string|StaticImageData|null,
+    link: string,
+    stacks: string[]
+  }

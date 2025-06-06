@@ -57,7 +57,7 @@ export const socials: ISocial[] = [
   },
   {
     title: "LinkedIn",
-    link: "https://linkedin.com/josephibok54",
+    link: "https://linkedin.com/in/joseph-ibok",
     Icon: Icons.linkedIn
   },
   {

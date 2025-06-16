@@ -31,6 +31,7 @@ import zkminter from "@/assets/projects/zkminter.png";
 import ballot from "@/assets/projects/ballot.png";
 import chainpay from "@/assets/projects/chain-pay.png";
 import sharepond from "@/assets/projects/sharepond.png";
+import summarizerAI from "@/assets/projects/summarizerai.png";
 
 // Testimonials
 import abasImage from "@/assets/users-testimonials/abas.jpeg";
@@ -89,12 +90,12 @@ export const testimonials = [
 export const projects: IProject[] = [
   {
     title: 'SolanaHub', 
+    description: "",
     image: SolanaHub,
     link: "https://solahub.online/",
     stacks: [
-      "Reactjs",
-      "Nodejs/Express",
-      "Typescript",
+      "Reactjs/Typescript",
+      "Nodejs/Express - Typescript",
       "Prisma",
       "PostgreSQL",
       "Supabase",
@@ -103,6 +104,7 @@ export const projects: IProject[] = [
   },
   {
     title: 'Sass Landing', 
+    description: "",
     image: SassLanding,
     link: 'https://sass-landing-gilt.vercel.app/',
     stacks: [
@@ -114,12 +116,13 @@ export const projects: IProject[] = [
   },
   {
     title: 'zkMinter', 
+    description: "",
     image: zkminter,
     link: 'https://zk-sol-minter.vercel.app/',
     stacks: [
       "NextJS",
       "TailwindCSS",
-      "Solana Web3.js",
+      "@solana/web3js",
       "ZK Light Protocol",
       "Supabase",
       "Pinata"
@@ -127,18 +130,20 @@ export const projects: IProject[] = [
   },
   {
     title: 'Ballot', 
+    description: "",
     image: ballot,
     link: 'https://ballot-pink.vercel.app/',
     stacks: [
       "ReactJS/ViteJS",
       "TailwindCSS",
-      "Solana Web3.js",
+      "@solana/web3js",
       "GSAP",
       "Axios"
     ]
   },
   {
     title: 'Scraper', 
+    description: "",
     image: null,
     link: 'https://github.com/cypherslopps/nodejs-scraper',
     stacks: [
@@ -148,24 +153,57 @@ export const projects: IProject[] = [
   },
   {
     title: 'Sharepond', 
+    description: "",
     image: sharepond,
     link: 'https://sharepond.vercel.app/',
     stacks: [
       "ReactJS/ViteJS",
       "Supabase (RealTime Database and Storage)",
-      "Tailwindcss"
+      "TailwindCSS"
     ]
   },
   {
     title: 'ChainPay', 
+    description: "",
     image: chainpay,
     link: 'https://chainpay-rho.vercel.app/',
     stacks: [
       "ReactJS/ViteJS",
-      "Supabase (RealTime Database and Storage)",
       "Tailwindcss"
     ]
   },  
+  {
+    title: 'Astra', 
+    description: "",
+    image: chainpay,
+    link: 'https://astra.vercel.app/',
+    stacks: [
+      "Nextjs",
+      "Typescript",
+      "Howler",
+      "TailwindCSS",
+      "Tanstack Query",
+      "@solana/webjs",
+      "shadcn/ui",
+      "Motion",
+      "Zod",
+      "Redux Toolkit"
+    ]
+  },  
+  {
+    title: 'SummarizerAI', 
+    description: "",
+    image: summarizerAI,
+    link: 'https://astra.vercel.app/',
+    stacks: [
+      "Nextjs",
+      "Nebius AI Studio (deepseek-ai/Deepseek-V3)",
+      "Axios",
+      "React Hot Toast",
+      "Lucide React",
+      "React-spinners"
+    ]
+  },
 ];
 
 export const resumeLink = "https://docs.google.com/document/d/1d3B8PobcWBZL_Z6RKvEhCuJtpBzrIpkHbH-NfF8wMM4/edit?usp=sharing";

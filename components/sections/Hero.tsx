@@ -139,7 +139,7 @@ function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
         >
-          With over <span className="text-white font-extrabold">8 years</span> of experience, I build scalable apps and blockchain solutions that drive innovation and client success. Explore my projects below!
+          With over <span className="text-white font-extrabold">7+ years</span> of experience, I build scalable apps and blockchain solutions that drive innovation and client success. Explore my projects below!
         </motion.p>
 
         {/* CTAs */}

@@ -29,7 +29,10 @@ const ProjectBlock = ({ project }: {project: IProject}) => {
         <div className='flex items-center justify-between mt-5 md:mt-0 md:grid md:[grid-template-columns:1fr_300px_max-content] md:gap-8'>
           <div className='lg:group-hover/project:pl-4 transition-all duration-700 flex flex-col gap-y-2 sm:gap-y-3'>
             <header className="flex items-center justify-between sm:inline-block">
-              <h3 className='text-[1.73rem] sm:text-4xl text-white font-bold'>{project.title}</h3>
+              <div>
+                <h3 className='text-[1.73rem] sm:text-4xl text-white font-bold'>{project.title}</h3>
+                <p>{project.description}</p>
+              </div>
               <div className='sm:hidden lg:group-hover/project:pr-4 transition-all duration-700'>
                 <HugeiconsIcon 
                   className='text-neutral-400 size-7'

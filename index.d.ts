@@ -8,6 +8,7 @@ interface ISocial {
 
 type IProject = {
     title: string,
+    description: string,
     image: string|StaticImageData|null,
     link: string,
     stacks: string[]

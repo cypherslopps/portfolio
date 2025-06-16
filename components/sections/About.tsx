@@ -39,7 +39,7 @@ const About = () => {
 
                         <div className="text-base sm:text-lg text-white/65 space-y-2">
                             <p>
-                                Passionate Software Engineer with <strong className="text-white">8 years</strong> of experience building elegant, high-impact solutions that bridge web, mobile, and blockchain technologies. I transform ideas into scalable real products that drive innovation and client success.
+                                Passionate Software Engineer with <strong className="text-white font-black">7+ years</strong> of experience building elegant, high-impact solutions that bridge web, mobile, and blockchain technologies. I transform ideas into scalable real products that drive innovation and client success.
                             </p>
 
                             <p>

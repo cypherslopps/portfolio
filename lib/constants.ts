@@ -1,7 +1,7 @@
 import Icons from "@/components/Icons";
 
 // Assets
-import { IProject, ISocial } from "..";
+import { IProject, IService, ISocial } from "..";
 
 // Skills
 import mongoDBIcon from "@/assets/icons/skills/mongodb.svg";
@@ -90,7 +90,7 @@ export const testimonials = [
 export const projects: IProject[] = [
   {
     title: 'SolanaHub', 
-    description: "",
+    description: "Solana Markerplace and CrowdFunding DApp for Startups",
     image: SolanaHub,
     link: "https://solahub.online/",
     stacks: [
@@ -104,7 +104,7 @@ export const projects: IProject[] = [
   },
   {
     title: 'Sass Landing', 
-    description: "",
+    description: "Animated aesthetic landing page for SASS Projects",
     image: SassLanding,
     link: 'https://sass-landing-gilt.vercel.app/',
     stacks: [
@@ -116,7 +116,7 @@ export const projects: IProject[] = [
   },
   {
     title: 'zkMinter', 
-    description: "",
+    description: "Compressed Solana tokens (cTokens) minter DApp",
     image: zkminter,
     link: 'https://zk-sol-minter.vercel.app/',
     stacks: [
@@ -130,7 +130,7 @@ export const projects: IProject[] = [
   },
   {
     title: 'Ballot', 
-    description: "",
+    description: "Solana Meme Project",
     image: ballot,
     link: 'https://ballot-pink.vercel.app/',
     stacks: [
@@ -143,7 +143,7 @@ export const projects: IProject[] = [
   },
   {
     title: 'Scraper', 
-    description: "",
+    description: "Automated Web Scraper built using Nodejs/Express and Selenium WebDriver",
     image: null,
     link: 'https://github.com/cypherslopps/nodejs-scraper',
     stacks: [
@@ -153,7 +153,7 @@ export const projects: IProject[] = [
   },
   {
     title: 'Sharepond', 
-    description: "",
+    description: "Real-time File Sharing App",
     image: sharepond,
     link: 'https://sharepond.vercel.app/',
     stacks: [
@@ -164,7 +164,7 @@ export const projects: IProject[] = [
   },
   {
     title: 'ChainPay', 
-    description: "",
+    description: "Escrow DApp for Remote workers",
     image: chainpay,
     link: 'https://chainpay-rho.vercel.app/',
     stacks: [
@@ -174,7 +174,7 @@ export const projects: IProject[] = [
   },  
   {
     title: 'Astra', 
-    description: "",
+    description: "Multichain Streaming DApp that incentivices both the Streamers and Artist",
     image: chainpay,
     link: 'https://astra.vercel.app/',
     stacks: [
@@ -192,7 +192,7 @@ export const projects: IProject[] = [
   },  
   {
     title: 'SummarizerAI', 
-    description: "",
+    description: "SummarizerAI summarizes lengthy texts into clear, concise, and accurate summaries, preserving key insights and essential information.",  
     image: summarizerAI,
     link: 'https://astra.vercel.app/',
     stacks: [
@@ -285,5 +285,32 @@ export const skills = [
   {
     title: "Solidity",
     Icon: solidityIcon
+  }
+];
+
+export const services: IService[] = [
+  {
+    title: "API Development and Integration",
+    description: "Designing and building robust, scalable APIs to power seamless communication between systems, with proper documentations, ensuring high performance, security, and easy integration for your web and mobile platforms."
+  },
+  {
+    title: "Blockchain & Smart Contract Development",
+    description: "I deliver dApps, blockchain solutions and integrations, that suits your business needs."
+  },
+  {
+    title: "Mobile Applications",
+    description: "I build cross-platform mobile apps with React Native to captivate your audience. I deliver intuitive apps, enhancing user retention and functionality on iOS and Android."
+  },
+  {
+    title: "Frontend Development",
+    description: "Crafting scalable <strong>Web2</strong> and <strong>Web3</strong> apps that suits your business needs. I optimize for performance and security with server-side rendering and authentication, ensuring seamless, engaging interfaces for your users.",
+  },
+  {
+    title: "Bots",
+    description: "Automate tasks and boost engagement with AI-powered Discord and Telegram bots built using Node.js. I create tailored bots for community interaction and data processing, saving time and enhancing your operational efficiency."
+  },
+  {
+    title: "Agile Development",
+    description: "Accelerate your project delivery with agile methodologies, using Jira or ClickUp for streamlined sprints and collaboration. I ensure rapid, high-quality software releases, adapting to your needs and keeping your business goals on track."
   }
 ]

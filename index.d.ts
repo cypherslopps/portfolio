@@ -12,4 +12,9 @@ type IProject = {
     image: string|StaticImageData|null,
     link: string,
     stacks: string[]
-  }
+}
+
+type IService = {
+    title: string;
+    description: string;
+}

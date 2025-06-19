@@ -1,4 +1,4 @@
-import {  RiArrowRightLine, RiArrowUpLine, RiCheckboxCircleLine, RiGithubFill, RiLinkedinFill, RiTwitterFill, RiWhatsappFill } from "@remixicon/react";
+import {  RiArrowRightLine, RiArrowUpLine, RiCheckboxCircleLine, RiComputerFill, RiGithubFill, RiLinkedinFill, RiTwitterFill, RiWhatsappFill } from "@remixicon/react";
 
 const Icons = {
     github: RiGithubFill,
@@ -7,7 +7,8 @@ const Icons = {
     whatsapp: RiWhatsappFill,
     check: RiCheckboxCircleLine,
     arrowUp: RiArrowUpLine,
-    arrowRight: RiArrowRightLine
+    arrowRight: RiArrowRightLine,
+    frontend: RiComputerFill
 }
 
 export default Icons;

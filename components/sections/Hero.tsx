@@ -1,38 +1,39 @@
-"use client"
+"use client";
 
 import { useEffect, useRef, useState } from "react";
-import { motion, useScroll, useTransform } from "framer-motion"
-import { ElegantShape } from "@/components/ui/elegant-shape"
-import { StarBorder } from "@/components/ui/star-border"
-import { ParticlesBackground } from "@/components/ui/particles-background"
-import { FloatingGradient } from "@/components/ui/floating-gradient"
-import { AnimatedText } from "@/components/ui/animated-text"
+import { motion, useScroll, useTransform } from "framer-motion";
+import { ElegantShape } from "@/components/ui/elegant-shape";
+import { StarBorder } from "@/components/ui/star-border";
+import { ParticlesBackground } from "@/components/ui/particles-background";
+import { FloatingGradient } from "@/components/ui/floating-gradient";
+import { AnimatedText } from "@/components/ui/animated-text";
 import { businessWhatsappLink, resumeLink } from "@/lib/constants";
 
 function Hero() {
-  const containerRef = useRef<HTMLDivElement>(null)
-  const { scrollY } = useScroll()
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
+  const containerRef = useRef<HTMLDivElement>(null);
+  const { scrollY } = useScroll();
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
-  const titleOpacity = useTransform(scrollY, [0, 300], [1, 0])
-  const titleY = useTransform(scrollY, [0, 300], [0, -100])
-  const subtitleOpacity = useTransform(scrollY, [0, 200], [1, 0])
-  const buttonsOpacity = useTransform(scrollY, [0, 250], [1, 0])
+  const titleOpacity = useTransform(scrollY, [0, 300], [1, 0]);
+  const titleY = useTransform(scrollY, [0, 300], [0, -100]);
+  const subtitleOpacity = useTransform(scrollY, [0, 200], [1, 0]);
+  const buttonsOpacity = useTransform(scrollY, [0, 250], [1, 0]);
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
       if (containerRef.current) {
-        const { clientX, clientY } = e
-        const { left, top, width, height } = containerRef.current.getBoundingClientRect()
-        const x = (clientX - left) / width - 0.5
-        const y = (clientY - top) / height - 0.5
-        setMousePosition({ x, y })
+        const { clientX, clientY } = e;
+        const { left, top, width, height } =
+          containerRef.current.getBoundingClientRect();
+        const x = (clientX - left) / width - 0.5;
+        const y = (clientY - top) / height - 0.5;
+        setMousePosition({ x, y });
       }
-    }
+    };
 
-    window.addEventListener("mousemove", handleMouseMove)
-    return () => window.removeEventListener("mousemove", handleMouseMove)
-  }, [])
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, []);
 
   return (
     <section
@@ -43,7 +44,11 @@ function Hero() {
       <ParticlesBackground count={150} />
 
       {/* Floating Gradients */}
-      <FloatingGradient colors={["#a855f7", "#06b6d4", "#7c3aed", "#0ea5e9"]} blur={120} opacity={0.07} />
+      <FloatingGradient
+        colors={["#a855f7", "#06b6d4", "#7c3aed", "#0ea5e9"]}
+        blur={120}
+        opacity={0.07}
+      />
 
       {/* Elegant Shapes with mouse parallax */}
       <motion.div
@@ -108,8 +113,7 @@ function Hero() {
             }}
           />
           <span className="text-sm text-white/60 tracking-wide">
-            <span className="font-bold text-white">10X</span> {" "}
-            Software Engineer
+            <span className="font-bold text-white">10X</span> Software Engineer
           </span>
         </motion.div>
 
@@ -139,7 +143,13 @@ function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
         >
-          With over <span className="text-white font-extrabold">7+ years</span> of experience, I build scalable apps and blockchain solutions that drive innovation and client success. Explore my projects below!
+          Building Scalable Web2 & Web3 Products That Drive Growth
+          <br />
+          With over <span className="text-white font-extrabold">
+            7+ years
+          </span>{" "}
+          of experience, I help founders and businesses design, build, and scale
+          high-performing digital products, from idea to launch.
         </motion.p>
 
         {/* CTAs */}
@@ -161,14 +171,18 @@ function Hero() {
               whileHover={{ x: 5 }}
               transition={{ type: "spring", stiffness: 400, damping: 10 }}
             >
-                View Resume
-                <motion.span
-                  className="ml-2"
-                  animate={{ x: [0, 5, 0] }}
-                  transition={{ duration: 1.5, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
-                >
-                  →
-                </motion.span>
+              View Resume
+              <motion.span
+                className="ml-2"
+                animate={{ x: [0, 5, 0] }}
+                transition={{
+                  duration: 1.5,
+                  repeat: Number.POSITIVE_INFINITY,
+                  ease: "easeInOut",
+                }}
+              >
+                →
+              </motion.span>
             </motion.span>
           </StarBorder>
 
@@ -193,8 +207,7 @@ function Hero() {
 
       <div className="absolute inset-0 bg-gradient-to-t from-[#030303] via-transparent to-[#030303]/80 pointer-events-none" />
     </section>
-  )
+  );
 }
-
 
 export default Hero;

@@ -16,9 +16,9 @@ const ProjectBlock = ({ project }: { project: IProject }) => {
       className="bg-neutral-400/10 p-4 sm:px-8 sm:py-6 md:py-8 lg:py-8 cursor-pointer border-t last:border-b border-neutral-800 border-dotted flex flex-col justify-between group/project relative"
     >
       <div className="absolute bottom-0 left-0 w-full h-0 group-hover/project:h-full transition-all duration-500 bg-background/50" />
-      <div className="relative">
+      <div className="relative space-y-5 lg:space-y-0">
         {project.image && (
-          <div className="h-[15rem] md:hidden">
+          <div className="h-[15rem] lg:hidden">
             <Image
               src={project.image}
               alt={project.title}
@@ -27,18 +27,20 @@ const ProjectBlock = ({ project }: { project: IProject }) => {
           </div>
         )}
 
-        <div className="flex items-center justify-between mt-5 md:mt-0 md:grid md:[grid-template-columns:1fr_300px_max-content] md:gap-8">
+        <div className="flex items-center justify-between mt-5 lg:mt-0 lg:grid lg:grid-cols-[1fr_300px_max-content] lg:gap-8">
           <div className="lg:group-hover/project:pl-4 transition-all duration-700 flex flex-col gap-y-2 sm:gap-y-3">
             <header className="flex items-center justify-between sm:inline-block">
-              <div className="space-y-1">
-                <div className="flex items-center gap-x-2">
+              <div className="space-y-2">
+                <div className="space-y-1">
                   <h3 className="text-[1.73rem] sm:text-4xl text-white font-bold">
                     {project.title}
                   </h3>
-                  <span className="text-gray-700">---</span>
-                  <p className="text-lg italic text-primary">{project.role}</p>
+                  <p className="text-base italic text-white/80">
+                    {project.role}
+                  </p>
                 </div>
-                <p className="opacity-85">{project.description}</p>
+
+                <p>{project.description}</p>
               </div>
               <div className="sm:hidden lg:group-hover/project:pr-4 transition-all duration-700">
                 <HugeiconsIcon
@@ -66,7 +68,7 @@ const ProjectBlock = ({ project }: { project: IProject }) => {
             </div>
           </div>
 
-          <div className="relative [perspective: 800px] hidden md:block">
+          <div className="relative [perspective: 800px] hidden lg:block">
             {project.image && (
               <div className="absolute w-[30rem] h-[15rem] top-1/2 -translate-y-1/2 right-5 opacity-0 scale-50 group-hover/project:opacity-100 lg:group-hover/project:scale-100 transition-all duration-500 z-10 rounded-md">
                 <Image

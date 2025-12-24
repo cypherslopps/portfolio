@@ -1,3 +1,11 @@
+import {
+  CodeIcon,
+  BlockGameIcon,
+  SmartPhone02Icon,
+  ColorsIcon,
+  ChatBotIcon,
+  ZapIcon,
+} from "@hugeicons/core-free-icons";
 import Icons from "@/components/Icons";
 
 // Assets
@@ -92,8 +100,14 @@ export const testimonials = [
 export const projects: IProject[] = [
   {
     title: "SolanaHub",
-    description: "Solana Markerplace and CrowdFunding DApp for Startups",
+    description:
+      "A marketplace and crowdfunding platform for Solana startups, built to simplify tokenized fundraising and digital asset trading.",
     role: "Fullstack Engineer",
+    contribution: [
+      "Architected the backend with secure REST APIs, PostgreSQL schemas, Wallet connect auth and Supabase Database",
+      "Built the full frontend flow: onboarding, marketplace interactions, wallet integration, and crowdfunding modules.",
+      "Implemented CI/CD pipelines, automated deployment, and error monitoring.",
+    ],
     image: SolanaHub,
     link: "https://solahub.online/",
     stacks: [
@@ -110,6 +124,12 @@ export const projects: IProject[] = [
     description:
       "SolanaHunt is a discovery platform for the Solana ecosystem, designed to help developers, investors, and enthusiasts find, vote on, and showcase the most exciting Solana projects.",
     role: "Fullstack Engineer",
+    contribution: [
+      "Led development and ongoing maintenance of SolanaHunt, a community-driven platform for discovering and upvoting Solana projects, increasing user engagement by 30%.",
+      "Refactored the Next.js/TypeScript frontend and Node.js/TypeScript backend, reducing page load times by 25% and improving overall developer experience.",
+      "Integrated PrivyAuth for secure, wallet-based authentication, enabling frictionless Solana wallet sign-ins.",
+      "Improved UI consistency, responsiveness, and application state management using TailwindCSS and Zustand to deliver a smoother browsing and voting experience.",
+    ],
     image: SolanaHunt,
     link: "https://solanahunt.com/",
     stacks: [
@@ -127,6 +147,11 @@ export const projects: IProject[] = [
     description:
       "XDegen is a decentralized learning and streaming platform for crypto and Web3 enthusiasts, designed specifically for “degens” who crave fast, interactive, and community-driven experiences",
     role: "Frontend Engineer",
+    contribution: [
+      "Built the academy creation and management flow using React Hook Form and Zod, integrating Pinata (IPFS) for file uploads and Solana smart contracts to enable wallet-based payouts.",
+      "Implemented Livekit to support live video sessions and scheduling, improving real-time interaction and delivery of educational content.",
+      "Integrated Dialect for real-time, token-gated broadcasting, enabling academies to send notifications to 1,000+ subscribed users daily with 98% delivery reliability.",
+    ],
     image: XDegen,
     link: "https://xdegen.xyz/",
     stacks: [
@@ -143,6 +168,11 @@ export const projects: IProject[] = [
     title: "zkMinter",
     description: "Compressed Solana tokens (cTokens) minter DApp",
     role: "Web3 Frontend Engineer",
+    contribution: [
+      "Built the UI and user flows for token creation and minting.",
+      "Integrated Solana/web3js for blockchain interactions.",
+      "Connected ZK light-protocol endpoints and managed signature validation.",
+    ],
     image: zkminter,
     link: "https://zk-sol-minter.vercel.app/",
     stacks: [
@@ -195,6 +225,21 @@ export const projects: IProject[] = [
       "ReactJS/ViteJS",
       "Supabase (RealTime Database and Storage)",
       "TailwindCSS",
+    ],
+  },
+  {
+    title: "CasinoBetil",
+    description: "Production betting platform with complex transactional flows",
+    role: "Senior Frontend Engineer",
+    image: chainpay,
+    link: null,
+    stacks: [
+      "React",
+      "TypeScript",
+      "i18n",
+      "Transactional State",
+      "Tailwindcss",
+      "Betting UX Patterns",
     ],
   },
   {
@@ -327,31 +372,37 @@ export const skills = [
 
 export const services: IService[] = [
   {
+    Icon: CodeIcon,
     title: "API Development and Integration",
     description:
       "Designing and building robust, scalable APIs to power seamless communication between systems, with proper documentations, ensuring high performance, security, and easy integration for your web and mobile platforms.",
   },
   {
+    Icon: BlockGameIcon,
     title: "Blockchain & Smart Contract Development",
     description:
       "I deliver dApps, blockchain solutions and integrations, that suits your business needs.",
   },
   {
+    Icon: SmartPhone02Icon,
     title: "Mobile Applications",
     description:
       "I build cross-platform mobile apps with React Native to captivate your audience. I deliver intuitive apps, enhancing user retention and functionality on iOS and Android.",
   },
   {
+    Icon: ColorsIcon,
     title: "Frontend Development",
     description:
       "Crafting scalable <strong>Web2</strong> and <strong>Web3</strong> apps that suits your business needs. I optimize for performance and security with server-side rendering and authentication, ensuring seamless, engaging interfaces for your users.",
   },
   {
+    Icon: ChatBotIcon,
     title: "Bots",
     description:
       "Automate tasks and boost engagement with AI-powered Discord and Telegram bots built using Node.js. I create tailored bots for community interaction and data processing, saving time and enhancing your operational efficiency.",
   },
   {
+    Icon: ZapIcon,
     title: "Agile Development",
     description:
       "Accelerate your project delivery with agile methodologies, using Jira or ClickUp for streamlined sprints and collaboration. I ensure rapid, high-quality software releases, adapting to your needs and keeping your business goals on track.",

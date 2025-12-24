@@ -1,3 +1,4 @@
+import { IconSvgElement } from "@hugeicons/react";
 import type { IconBaseProps } from "@remixicon/react";
 import { StaticImageData } from "next/image";
 
@@ -12,11 +13,13 @@ type IProject = {
   description: string;
   image: string | StaticImageData | null;
   role: string;
-  link: string;
+  contribution?: string[];
+  link: string | null;
   stacks: string[];
 };
 
 type IService = {
+  Icon: IconSvgElement;
   title: string;
   description: string;
 };

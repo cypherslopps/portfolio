@@ -2,9 +2,10 @@ import {
   CodeIcon,
   BlockGameIcon,
   SmartPhone02Icon,
-  ColorsIcon,
+  LaptopIcon,
   ChatBotIcon,
   ZapIcon,
+  RepeatIcon,
 } from "@hugeicons/core-free-icons";
 import Icons from "@/components/Icons";
 
@@ -27,6 +28,8 @@ import prismaIcon from "@/assets/icons/skills/prisma.svg";
 import reactIcon from "@/assets/icons/skills/react.svg";
 import reduxIcon from "@/assets/icons/skills/redux.svg";
 import sanityIcon from "@/assets/icons/skills/sanity.svg";
+import tanstackIcon from "@/assets/icons/skills/react-query.svg";
+import n8nIcon from "@/assets/icons/skills/n8n.svg";
 import solidityIcon from "@/assets/icons/skills/solidity.svg";
 import supabaseIcon from "@/assets/icons/skills/supabase.svg";
 import tailwindcssIcon from "@/assets/icons/skills/tailwindcss.svg";
@@ -229,7 +232,8 @@ export const projects: IProject[] = [
   },
   {
     title: "CasinoBetil",
-    description: "Production betting platform with complex transactional flows",
+    description:
+      "A betting platform built and maintained core user-facing features that support real-time interactions, internalization, and transactional flows",
     role: "Senior Frontend Engineer",
     image: chainpay,
     link: null,
@@ -305,6 +309,14 @@ export const skills = [
     Icon: typescriptIcon,
   },
   {
+    title: "n8n",
+    Icon: n8nIcon,
+  },
+  {
+    title: "Tanstack Query",
+    Icon: tanstackIcon,
+  },
+  {
     title: "NodeJS",
     Icon: nodejsIcon,
   },
@@ -375,7 +387,7 @@ export const services: IService[] = [
     Icon: CodeIcon,
     title: "API Development and Integration",
     description:
-      "Designing and building robust, scalable APIs to power seamless communication between systems, with proper documentations, ensuring high performance, security, and easy integration for your web and mobile platforms.",
+      "I design and build scalable, production-grade systems with a focus on clean architecture, reliability, and growth-readiness. This includes API-first backend design, asynchronous processing, background jobs, caching strategies, and automation-friendly workflows that support increasing load without system fragility.",
   },
   {
     Icon: BlockGameIcon,
@@ -390,7 +402,7 @@ export const services: IService[] = [
       "I build cross-platform mobile apps with React Native to captivate your audience. I deliver intuitive apps, enhancing user retention and functionality on iOS and Android.",
   },
   {
-    Icon: ColorsIcon,
+    Icon: LaptopIcon,
     title: "Frontend Development",
     description:
       "Crafting scalable <strong>Web2</strong> and <strong>Web3</strong> apps that suits your business needs. I optimize for performance and security with server-side rendering and authentication, ensuring seamless, engaging interfaces for your users.",
@@ -399,12 +411,18 @@ export const services: IService[] = [
     Icon: ChatBotIcon,
     title: "Bots",
     description:
-      "Automate tasks and boost engagement with AI-powered Discord and Telegram bots built using Node.js. I create tailored bots for community interaction and data processing, saving time and enhancing your operational efficiency.",
+      "I build automation-driven bots for Discord, Telegram, and internal tooling that trigger workflows, process data, and integrate with external systems. These bots go beyond messaging—acting as operational tools for alerts, moderation, data collection, and automated actions across platforms.",
   },
   {
     Icon: ZapIcon,
     title: "Agile Development",
     description:
       "Accelerate your project delivery with agile methodologies, using Jira or ClickUp for streamlined sprints and collaboration. I ensure rapid, high-quality software releases, adapting to your needs and keeping your business goals on track.",
+  },
+  {
+    Icon: RepeatIcon,
+    title: "n8n Automation & AI Workflows",
+    description:
+      "I build scalable automation systems using n8n and API-driven services to orchestrate complex workflows across multiple tools and platforms. My workflows are designed with retries, error handling, logging, and idempotency in mind; ensuring reliability even as volume and complexity increase.",
   },
 ];

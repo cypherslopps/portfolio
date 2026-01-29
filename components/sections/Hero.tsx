@@ -143,13 +143,10 @@ function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
         >
-          Building Scalable Web2 & Web3 Products That Drive Growth
+          I help teams automate workflows, integrate systems,
           <br />
-          With over <span className="text-white font-extrabold">
-            7+ years
-          </span>{" "}
-          of experience, I help founders and businesses design, build, and scale
-          high-performing digital products, from idea to launch.
+          and build scalable software that reduces manual effort and accelerates
+          business operations.
         </motion.p>
 
         {/* CTAs */}

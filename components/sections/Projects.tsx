@@ -1,5 +1,9 @@
 "use client";
 
+import { useEffect } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
 import { ArrowUpRight03FreeIcons } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
 import Image from "next/image";
@@ -7,13 +11,15 @@ import { IProject } from "@/index";
 import { projects } from "@/lib/constants";
 import SectionHeader from "../SectionHeader";
 
+gsap.registerPlugin(ScrollTrigger);
+
 const ProjectBlock = ({ project }: { project: IProject }) => {
   return (
     <blockquote
       onClick={() =>
         project.link ? window.open(project.link, "_blank") : null
       }
-      className="bg-neutral-400/10 p-4 sm:px-8 sm:py-6 md:py-8 lg:py-8 cursor-pointer border-t last:border-b border-neutral-800 border-dotted flex flex-col justify-between group/project relative"
+      className="project-block bg-neutral-400/10 p-4 sm:px-8 sm:py-6 md:py-8 lg:py-8 cursor-pointer border-t last:border-b border-neutral-800 border-dotted flex flex-col justify-between group/project relative opacity-0 translate-y-10"
     >
       <div className="absolute bottom-0 left-0 w-full h-0 group-hover/project:h-full transition-all duration-500 bg-background/50" />
       <div className="relative space-y-5 lg:space-y-0">
@@ -79,7 +85,7 @@ const ProjectBlock = ({ project }: { project: IProject }) => {
               </div>
             )}
           </div>
-          {project.link.length && (
+          {project.link && (
             <div className="hidden sm:inline-block lg:group-hover/project:pr-4 transition-all duration-700">
               <HugeiconsIcon
                 className="text-neutral-400 size-7"
@@ -94,6 +100,56 @@ const ProjectBlock = ({ project }: { project: IProject }) => {
 };
 
 const Projects = () => {
+  useEffect(() => {
+    // Kill any old triggers (good practice in React/Next.js)
+    ScrollTrigger.getAll().forEach((t) => t.kill());
+
+    // Target all project blocks
+    const blocks = gsap.utils.toArray<HTMLElement>(".project-block");
+
+    gsap.to(blocks.slice(0, 4), {
+      opacity: 1,
+      y: 0,
+      stagger: 0.12,
+      duration: 0.9,
+      ease: "power3.out",
+    });
+
+    // Use batch for progressive reveal
+    ScrollTrigger.batch(blocks, {
+      start: "top 85%",
+      end: "bottom 20%",
+      onEnter: (batch) => {
+        gsap.to(batch, {
+          opacity: 1,
+          y: 0,
+          duration: 1.5,
+          stagger: 0.18,
+          ease: "power3.out",
+          overwrite: "auto",
+        });
+      },
+      onLeaveBack: (batch) => {
+        gsap.to(batch, {
+          opacity: 0,
+          y: 40,
+          duration: 0.8,
+          stagger: 0.1,
+          ease: "power3.in",
+          overwrite: "auto",
+        });
+      },
+      interval: 0.1,
+      batchMax: 4,
+    });
+
+    ScrollTrigger.refresh();
+
+    return () => {
+      ScrollTrigger.getAll().forEach((t) => t.kill());
+    };
+  }, []);
+
   return (
     <section id="projects" className="wrapper space-y-10 pb-16 lg:pt-10">
       <SectionHeader headline="Real-World Results" title="My Projects" />

@@ -33,24 +33,31 @@ const About = () => {
             </h1>
           </header>
 
-          <div className="text-base sm:text-lg text-white/65 space-y-2">
+          <div className="text-base sm:text-lg text-white/65 space-y-3.5">
             <p>
-              Passionate Software Engineer with{" "}
-              <strong className="text-white font-black">7+ years</strong> of
-              experience building elegant, high-impact solutions that bridge
-              web, mobile, and blockchain technologies. I transform ideas into
-              scalable real products that drive innovation and client success.
+              Software Engineer with{" "}
+              <strong className="text-white font-black">8 years</strong> of
+              experience building scalable, production-grade systems across web,
+              mobile, blockchain, and automation-driven platforms. I specialize
+              in designing clean architectures, API-first backends, and
+              high-performance user interfaces that translate ideas into
+              reliable products built to grow.
             </p>
 
             <p>
-              When I’m not coding, connecting with the tech community to inspire
-              and collaborate, watching{" "}
-              <strong className="text-white">ANIMES</strong>, playing{" "}
+              My work focuses on system reliability, maintainability, and
+              real-world impact—bridging frontend experiences with backend
+              logic, automation workflows, and data-driven processes to support
+              business growth at scale.
+            </p>
+
+            <p>
+              Outside of coding, I enjoy collaborating with other builders,
+              watching <strong className="text-white">ANIMES</strong>, playing{" "}
               <strong className="text-white">Games 🎮</strong>,{" "}
               <strong className="text-white">Reading books 📚</strong> and{" "}
               <strong className="text-white">Learning new concepts</strong>.
-              Let’s create something extraordinary together—reach out to discuss
-              your next project!
+              Reach out to discuss how we can build something amazing together.
             </p>
           </div>
 

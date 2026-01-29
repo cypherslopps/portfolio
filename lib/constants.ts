@@ -280,7 +280,7 @@ export const projects: IProject[] = [
     description:
       "A betting platform built and maintained core user-facing features that support real-time interactions, internalization, and transactional flows",
     role: "Senior Frontend Engineer",
-    image: chainpay,
+    image: casinoBetil,
     link: null,
     stacks: [
       "React",
@@ -429,7 +429,6 @@ export const skills = [
 
 export const services: IService[] = [
   {
-    Icon: CodeIcon,
     Icon: CodeIcon,
     title: "API Development and Integration",
     description:

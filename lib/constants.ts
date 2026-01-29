@@ -39,6 +39,7 @@ import typescriptIcon from "@/assets/icons/skills/typescript.svg";
 import SolanaHub from "@/assets/projects/solanahub.png";
 import XDegen from "@/assets/projects/xdegen.png";
 import SassLanding from "@/assets/projects/sass-landing.png";
+import casinoBetil from "@/assets/projects/casino-betil.png";
 import SolanaHunt from "@/assets/projects/solanahunt.png";
 import zkminter from "@/assets/projects/zkminter.png";
 import ballot from "@/assets/projects/ballot.png";
@@ -168,6 +169,26 @@ export const projects: IProject[] = [
     ],
   },
   {
+    title: "OneBeam",
+    role: "Frontend Engineer",
+    description: "Event and ticketing platform (early-stage build)",
+    contribution: [
+      "Built event ticket checkout flows",
+      "Implemented event landing pages",
+      "Developed key parts of the merchant dashboard",
+      "Helped establish frontend structure and reusable UI patterns",
+    ],
+    stacks: [
+      "React",
+      "TypeScript",
+      "Checkout Flows",
+      "Dashboard UI",
+      "Event Systems",
+    ],
+    image: null,
+    link: null,
+  },
+  {
     title: "zkMinter",
     description: "Compressed Solana tokens (cTokens) minter DApp",
     role: "Web3 Frontend Engineer",
@@ -208,6 +229,30 @@ export const projects: IProject[] = [
     image: SassLanding,
     link: "https://sass-landing-gilt.vercel.app/",
     stacks: ["NextJS", "Framer Motion", "Shadcn/ui", "TailwindCSS"],
+  },
+  {
+    title: "Tonbunnies",
+    role: "Web3 Frontend / Game Engineer",
+    description: "Shipped Web3 game with real users and revenue",
+    contribution: [
+      "Led frontend development of a Web3 game on the TON blockchain, integrating NFTs, token minting, and ownership verification into gameplay flows.",
+      "Built a Telegram Mini App using TypeScript and React-based architecture to support seamless in-app game interactions.",
+      "Integrated smart contract functions and GO-based REST APIs to enable secure in-game transactions and asset interactions.",
+      "Researched and optimized TON SDK usage to reduce in-game transaction latency by 30% and improve overall player experience.",
+      "Delivered frontend features that increased player retention by 25% across a user base of 10,000+ players.",
+    ],
+    stacks: [
+      "React",
+      "TypeScript",
+      "2D Game UI Architecture",
+      "Web3",
+      "TON Smart Contract Integration",
+      "State Management",
+      "NFTs",
+      "Tokens",
+    ],
+    image: null,
+    link: null,
   },
   {
     title: "Scraper",
@@ -384,6 +429,7 @@ export const skills = [
 
 export const services: IService[] = [
   {
+    Icon: CodeIcon,
     Icon: CodeIcon,
     title: "API Development and Integration",
     description:

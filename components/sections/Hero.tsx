@@ -94,29 +94,6 @@ function Hero() {
           opacity: titleOpacity,
         }}
       >
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.03] border border-white/[0.08] mb-6 sm:mb-8 backdrop-blur-sm"
-        >
-          <motion.div
-            className="h-2 w-2 rounded-full bg-purple-500"
-            animate={{
-              scale: [1, 1.2, 1],
-              opacity: [1, 0.8, 1],
-            }}
-            transition={{
-              duration: 2,
-              repeat: Number.POSITIVE_INFINITY,
-              ease: "easeInOut",
-            }}
-          />
-          <span className="text-sm text-white/60 tracking-wide">
-            <span className="font-bold text-white">10X</span> Software Engineer
-          </span>
-        </motion.div>
-
         <div className="mb-6 flex flex-col items-center">
           <AnimatedText
             text="Crafting Innovative"

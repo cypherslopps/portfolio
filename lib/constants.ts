@@ -4,7 +4,6 @@ import {
   SmartPhone02Icon,
   LaptopIcon,
   ChatBotIcon,
-  ZapIcon,
   RepeatIcon,
 } from "@hugeicons/core-free-icons";
 import Icons from "@/components/Icons";
@@ -457,12 +456,6 @@ export const services: IService[] = [
     title: "Bots",
     description:
       "I build automation-driven bots for Discord, Telegram, and internal tooling that trigger workflows, process data, and integrate with external systems. These bots go beyond messaging—acting as operational tools for alerts, moderation, data collection, and automated actions across platforms.",
-  },
-  {
-    Icon: ZapIcon,
-    title: "Agile Development",
-    description:
-      "Accelerate your project delivery with agile methodologies, using Jira or ClickUp for streamlined sprints and collaboration. I ensure rapid, high-quality software releases, adapting to your needs and keeping your business goals on track.",
   },
   {
     Icon: RepeatIcon,

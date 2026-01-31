@@ -29,33 +29,34 @@ const About = () => {
               Hello
             </p>
             <h1 className="uppercase text-[1.9rem] sm:text-5xl md:text-6xl font-extrabold tracking-tight">
-              {"I'm"} Joseph
+              {"I'm"} Joseph Ibok
             </h1>
           </header>
 
           <div className="text-base sm:text-lg text-white/65 space-y-3.5">
             <p>
-              Software Engineer with{" "}
+              I am a Senior Software Engineer with{" "}
               <strong className="text-white font-black">8 years</strong> of
-              experience building scalable, production-grade systems across web,
-              mobile, blockchain, and automation-driven platforms. I specialize
-              in designing clean architectures, API-first backends, and
-              high-performance user interfaces that translate ideas into
-              reliable products built to grow.
+              experience building scalable, production-grade systems. My
+              expertise lies in full-stack development, specializing in robust
+              automation, API-first backends, and advanced Web3 platforms. I
+              design and implement clean architectures that translate complex
+              ideas into reliable products engineered for growth.
             </p>
 
             <p>
-              My work focuses on system reliability, maintainability, and
-              real-world impact—bridging frontend experiences with backend
-              logic, automation workflows, and data-driven processes to support
-              business growth at scale.
+              My focus is on driving measurable business impact through system
+              reliability and maintainability. I excel at bridging sophisticated
+              backend logic with high-performance frontend experiences,
+              designing efficient automation workflows, and leveraging
+              data-driven processes to support sustainable growth at scale.
             </p>
 
             <p>
               Outside of coding, I enjoy collaborating with other builders,
               watching <strong className="text-white">ANIMES</strong>, playing{" "}
-              <strong className="text-white">Games 🎮</strong>,{" "}
-              <strong className="text-white">Reading books 📚</strong> and{" "}
+              <strong className="text-white">Games</strong>,{" "}
+              <strong className="text-white">Reading books</strong> and{" "}
               <strong className="text-white">Learning new concepts</strong>.
               Reach out to discuss how we can build something amazing together.
             </p>

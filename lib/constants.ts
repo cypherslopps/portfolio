@@ -346,25 +346,6 @@ export const projects: IProject[] = [
     link: "https://chainpay-rho.vercel.app/",
     stacks: ["ReactJS/ViteJS", "Tailwindcss"],
   },
-  // {
-  //   title: "Astra",
-  //   description:
-  //     "Multichain Streaming DApp that incentivices both the Streamers and Artist",
-  //   image: chainpay,
-  //   link: "https://astra.vercel.app/",
-  //   stacks: [
-  //     "Nextjs",
-  //     "Typescript",
-  //     "Howler",
-  //     "TailwindCSS",
-  //     "Tanstack Query",
-  //     "@solana/webjs",
-  //     "shadcn/ui",
-  //     "Motion",
-  //     "Zod",
-  //     "Redux Toolkit",
-  //   ],
-  // },
   {
     title: "SummarizerAI",
     description:

@@ -57,18 +57,23 @@ const ProjectBlock = ({ project }: { project: IProject }) => {
             </header>
 
             {/* Contributions */}
-            <div className="space-y-3">
-              <h5 className="font-semibold">Key contributions</h5>
+            {project?.contribution?.length && (
+              <div className="space-y-3">
+                <h5 className="font-semibold">Key contributions</h5>
 
-              <ul className="list-disc grid gap-y-2 pl-5">
-                {project?.contribution?.length &&
-                  project.contribution.map((c) => (
-                    <li key={c} className="text-sm text-white/80 leading-loose">
-                      {c}
-                    </li>
-                  ))}
-              </ul>
-            </div>
+                <ul className="list-disc grid gap-y-2 pl-5">
+                  {project?.contribution?.length &&
+                    project.contribution.map((c) => (
+                      <li
+                        key={c}
+                        className="text-sm text-white/80 leading-loose"
+                      >
+                        {c}
+                      </li>
+                    ))}
+                </ul>
+              </div>
+            )}
 
             <div className="flex flex-col gap-y-2 sm:flex-row sm:gap-x-3 text-sm sm:items-center w-[100%] md:w-[115%]">
               <span className="w-max inline-block relative after:absolute after:bottom-0 after:left-0 after:w-full after:h-[.2rem] after:bg-primary/70 after:rounded-full after:rotate-[-1deg]">

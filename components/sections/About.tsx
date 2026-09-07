@@ -35,30 +35,48 @@ const About = () => {
 
           <div className="text-base sm:text-lg text-white/65 space-y-3.5">
             <p>
-              I am a Senior Software Engineer with{" "}
-              <strong className="text-white font-black">8 years</strong> of
-              experience building scalable, production-grade systems. My
-              expertise lies in full-stack development, specializing in robust
-              automation, API-first backends, and advanced Web3 platforms. I
-              design and implement clean architectures that translate complex
-              ideas into reliable products engineered for growth.
+              {"I've"} built reliable and scalable systems/products that have
+              made recurring revenue for businesses, solves real-world problems,
+              and have been used by thousands of users. {"It's"} one thing to
+              have an idea, but {"it's"} another to bring it to reality without
+              any hiccups. I specialize in refining ideas into reliable products
+              that are engineered for growth on the long run.
+              <br />
+              <br />I am a software engineer with a strong focus on system
+              security, backend development, system architecture, building
+              performant, fast, aesthetic and reliable applications, and cloud
+              infrastructure.
             </p>
 
             <p>
-              My focus is on driving measurable business impact through system
-              reliability and maintainability. I excel at bridging sophisticated
-              backend logic with high-performance frontend experiences,
-              designing efficient automation workflows, and leveraging
-              data-driven processes to support sustainable growth at scale.
+              I have a keen interest in building payment systems across
+              decentralized and centralized sectors. {"I've"} been making
+              extensive research on Fintech to better understand the best
+              measure, bottlenecks and approches that works. Because a great
+              products {"isn't"} complete, if {"there're"} hitces around{" "}
+              {"it's"} payment infastructure.
+              <br /> <br />I am a{" "}
+              <strong className="text-white">team player</strong> and I enjoy
+              collaborating with other developers to build great products.
             </p>
 
             <p>
               Outside of coding, I enjoy collaborating with other builders,
               watching <strong className="text-white">ANIMES</strong>, playing{" "}
-              <strong className="text-white">Games</strong>,{" "}
-              <strong className="text-white">Reading books</strong> and{" "}
-              <strong className="text-white">Learning new concepts</strong>.
-              Reach out to discuss how we can build something amazing together.
+              <strong className="text-white">
+                Games (P5, Snooker and more)
+              </strong>
+              ,{" "}
+              <strong className="text-white">
+                Reading books (Poetry, Philosophy and more)
+              </strong>
+              . Reach out to discuss how we can build something amazing together{" "}
+              <Link
+                href="#cta"
+                className="decoration-1 underline decoration-dashed italic text-white hover:text-primary transition-colors duration-300 text-sm sm:text-[15px]"
+              >
+                Click below
+              </Link>
             </p>
           </div>
 

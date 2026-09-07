@@ -12,38 +12,44 @@ import Icons from "@/components/Icons";
 import { IProject, IService, ISocial } from "..";
 
 // Skills
-import mongoDBIcon from "@/assets/icons/skills/mongodb.svg";
 import cSS3Icon from "@/assets/icons/skills/css3.svg";
 import gitIcon from "@/assets/icons/skills/git-plain.svg";
 import githubIcon from "@/assets/icons/skills/github.svg";
 import reactNativeIcon from "@/assets/icons/skills/react-native.svg";
 import html5Icon from "@/assets/icons/skills/html5.svg";
+
+// Cloud
+import awsIcon from "@/assets/icons/skills/aws.svg";
+import dockerIcon from "@/assets/icons/skills/docker.svg";
+
+// Javascript Frameworks
 import expressIcon from "@/assets/icons/skills/express.svg";
 import nestjsIcon from "@/assets/icons/skills/nestjs.svg";
 import nextjsIcon from "@/assets/icons/skills/nextjs.svg";
 import nodejsIcon from "@/assets/icons/skills/nodejs.svg";
-import postgresqlIcon from "@/assets/icons/skills/postgresql.svg";
-import prismaIcon from "@/assets/icons/skills/prisma.svg";
 import reactIcon from "@/assets/icons/skills/react.svg";
 import reduxIcon from "@/assets/icons/skills/redux.svg";
 import sanityIcon from "@/assets/icons/skills/sanity.svg";
 import tanstackIcon from "@/assets/icons/skills/react-query.svg";
-import n8nIcon from "@/assets/icons/skills/n8n.svg";
-import solidityIcon from "@/assets/icons/skills/solidity.svg";
-import supabaseIcon from "@/assets/icons/skills/supabase.svg";
 import tailwindcssIcon from "@/assets/icons/skills/tailwindcss.svg";
 import typescriptIcon from "@/assets/icons/skills/typescript.svg";
 
+// Backend
+import mongoDBIcon from "@/assets/icons/skills/mongodb.svg";
+import supabaseIcon from "@/assets/icons/skills/supabase.svg";
+import postgresqlIcon from "@/assets/icons/skills/postgresql.svg";
+import prismaIcon from "@/assets/icons/skills/prisma.svg";
+import n8nIcon from "@/assets/icons/skills/n8n.svg";
+import solidityIcon from "@/assets/icons/skills/solidity.svg";
+import pythonIcon from "@/assets/icons/skills/python.svg";
+import fastAPIIcon from "@/assets/icons/skills/fastapi.svg";
+import redisIcon from "@/assets/icons/skills/redis.svg";
+
 // Projects
-import SolanaHub from "@/assets/projects/solanahub.png";
 import XDegen from "@/assets/projects/xdegen.png";
 import SassLanding from "@/assets/projects/sass-landing.png";
 import casinoBetil from "@/assets/projects/casino-betil.png";
 import SolanaHunt from "@/assets/projects/solanahunt.png";
-import zkminter from "@/assets/projects/zkminter.png";
-import ballot from "@/assets/projects/ballot.png";
-import chainpay from "@/assets/projects/chain-pay.png";
-import sharepond from "@/assets/projects/sharepond.png";
 import summarizerAI from "@/assets/projects/summarizerai.png";
 
 // Testimonials
@@ -102,27 +108,6 @@ export const testimonials = [
 
 export const projects: IProject[] = [
   {
-    title: "SolanaHub",
-    description:
-      "A marketplace and crowdfunding platform for Solana startups, built to simplify tokenized fundraising and digital asset trading.",
-    role: "Fullstack Engineer",
-    contribution: [
-      "Architected the backend with secure REST APIs, PostgreSQL schemas, Wallet connect auth and Supabase Database",
-      "Built the full frontend flow: onboarding, marketplace interactions, wallet integration, and crowdfunding modules.",
-      "Implemented CI/CD pipelines, automated deployment, and error monitoring.",
-    ],
-    image: SolanaHub,
-    link: "https://solahub.online/",
-    stacks: [
-      "Reactjs/Typescript",
-      "Nodejs/Express - Typescript",
-      "Prisma",
-      "PostgreSQL",
-      "Supabase",
-      "Cloudinary",
-    ],
-  },
-  {
     title: "SolanaHunt",
     description:
       "SolanaHunt is a discovery platform for the Solana ecosystem, designed to help developers, investors, and enthusiasts find, vote on, and showcase the most exciting Solana projects.",
@@ -134,7 +119,7 @@ export const projects: IProject[] = [
       "Improved UI consistency, responsiveness, and application state management using TailwindCSS and Zustand to deliver a smoother browsing and voting experience.",
     ],
     image: SolanaHunt,
-    link: "https://solanahunt.com/",
+    link: null,
     stacks: [
       "Next.js/Typescript",
       "Framer Motion",
@@ -188,63 +173,6 @@ export const projects: IProject[] = [
     link: null,
   },
   {
-    title: "zkMinter",
-    description: "Compressed Solana tokens (cTokens) minter DApp",
-    role: "Web3 Frontend Engineer",
-    contribution: [
-      "Built the UI and user flows for token creation and minting.",
-      "Integrated Solana/web3js for blockchain interactions.",
-      "Connected ZK light-protocol endpoints and managed signature validation.",
-    ],
-    image: zkminter,
-    link: "https://zk-sol-minter.vercel.app/",
-    stacks: [
-      "NextJS",
-      "TailwindCSS",
-      "@solana/web3js",
-      "ZK Light Protocol",
-      "Supabase",
-      "Pinata",
-    ],
-  },
-  {
-    title: "Ballot",
-    description:
-      "Interactive, gas-optimized voting dApp on Solana with real-time result visualization.",
-    role: "Web3 Frontend Engineer - Solana meme / Voting Project",
-    image: ballot,
-    link: "https://ballot-pink.vercel.app/",
-    contribution: [
-      "Built wallet connection, vote transaction flow, and real-time result updates using @solana/web3.js and Anchor",
-      "Implemented optimistic UI updates + fallback transaction confirmation polling to improve perceived performance",
-      "Designed responsive, animated UI with Framer Motion and GSAP that worked smoothly on both desktop and mobile",
-      "Handled Solana network congestion by implementing retry logic with exponential backoff and user-facing feedback",
-      "Tradeoff decision: Used Vite + React instead of Next.js to minimize bundle size and improve cold-start performance on low-end devices",
-    ],
-    stacks: [
-      "@solana/web3js",
-      "React",
-      "Vite",
-      "TypeScript",
-      "TailwindCSS",
-      "Anchor",
-      "Framer Motion",
-      "Axios",
-    ],
-  },
-  {
-    title: "Sass Landing",
-    description: "Animated aesthetic landing page for SASS Projects",
-    role: "Frontend Engineer",
-    image: SassLanding,
-    link: "https://sass-landing-gilt.vercel.app/",
-    contribution: [
-      "Created fluid scroll-triggered animations and micro-interactions using Framer Motion",
-      "Implemented responsive design system with TailwindCSS",
-    ],
-    stacks: ["Next.js", "Framer Motion", "TailwindCSS"],
-  },
-  {
     title: "Tonbunnies",
     role: "Web3 Frontend / Game Engineer",
     description: "Shipped Web3 game with real users and revenue",
@@ -269,54 +197,6 @@ export const projects: IProject[] = [
     link: null,
   },
   {
-    title: "Automated Web Scraper & Data Pipeline",
-    description:
-      "Built a robust, production-ready web scraper that extracts product data from dynamically loaded pages (infinite scroll + JavaScript-rendered content) and exports structured CSV output. Designed with reliability, error handling, and scalability in mind; suitable for scheduled data collection, price monitoring, or market research use cases.",
-    role: "Backend Engineer",
-    contribution: [
-      "Architected a headless Chrome-based scraper using Selenium WebDriver to handle JavaScript-heavy infinite-scroll pages",
-      "Implemented Express API endpoint to trigger scraping on demand and return raw HTML or processed data",
-      "Extracted structured product data (name, price) from multiple DOM elements with robust CSS selectors",
-      "Added automatic CSV generation with proper escaping and headers for easy downstream consumption",
-      "Used async/await + express-async-handler for clean error handling and reliable request lifecycle",
-      "Configured environment variables (dotenv) and headless Chrome flags for production-like execution",
-      "Ensured clean shutdown of browser instances in all cases (including errors) to prevent resource leaks",
-    ],
-    image: null,
-    link: "https://github.com/cypherslopps/nodejs-scraper",
-    stacks: [
-      "Node.js",
-      "Express",
-      "Selenium WebDriver",
-      "Chrome (headless)",
-      "CSV generation (fs)",
-      "dotenv",
-      "express-async-handler",
-      "TypeScript (recommended upgrade path)",
-    ],
-  },
-  {
-    title: "Sharepond",
-    description: "Real-time File Sharing App",
-    role: "Full-stack Engineer (Personal)",
-    image: sharepond,
-    link: "https://sharepond.vercel.app/",
-    contribution: [
-      "Designed and implemented the complete file upload flow using Supabase Storage: users upload files (with custom filenames) → files are stored in a private/public bucket → upon successful upload, the public URL + filename + metadata are inserted into the Supabase database table",
-      "Built a real-time subscription system using Supabase Realtime: the frontend subscribes to INSERT events on the files table, automatically fetching and displaying newly uploaded files without page refresh or polling",
-      "Ensured reliable uploads by implementing client-side progress indicators, error handling for failed uploads (with user feedback), and automatic retry logic for transient network issues",
-      "Optimized the frontend experience with optimistic UI updates: skeleton loader (while data is being fetched), new files appear instantly in the list while the backend confirmation is still processing, improving perceived performance",
-    ],
-    stacks: [
-      "React",
-      "Vite",
-      "Typescript",
-      "Supabase (RealTime Database and Storage)",
-      "TailwindCSS",
-      "React Toastify",
-    ],
-  },
-  {
     title: "CasinoBetil",
     description:
       "A betting platform built and maintained core user-facing features that support real-time interactions, internalization, and transactional flows",
@@ -338,13 +218,20 @@ export const projects: IProject[] = [
       "Betting UX Patterns",
     ],
   },
+];
+
+export const side_quests = [
   {
-    title: "ChainPay",
-    description: "Escrow DApp for Remote workers",
-    role: "Software Engineer",
-    image: chainpay,
-    link: "https://chainpay-rho.vercel.app/",
-    stacks: ["ReactJS/ViteJS", "Tailwindcss"],
+    title: "Sass Landing",
+    description: "Animated aesthetic landing page for SASS Projects",
+    role: "Frontend Engineer",
+    image: SassLanding,
+    link: "https://sass-landing-gilt.vercel.app/",
+    contribution: [
+      "Created fluid scroll-triggered animations and micro-interactions using Framer Motion",
+      "Implemented responsive design system with TailwindCSS",
+    ],
+    stacks: ["Next.js", "Framer Motion", "TailwindCSS"],
   },
   {
     title: "SummarizerAI",
@@ -374,6 +261,14 @@ export const resumeLink =
 export const businessWhatsappLink = "https://wa.me/2348157483352";
 
 export const skills = [
+  {
+    title: "Python",
+    Icon: pythonIcon,
+  },
+  {
+    title: "FastAPI",
+    Icon: fastAPIIcon,
+  },
   {
     title: "ReactJS",
     Icon: reactIcon,
@@ -407,6 +302,14 @@ export const skills = [
     Icon: expressIcon,
   },
   {
+    title: "AWS",
+    Icon: awsIcon,
+  },
+  {
+    title: "Docker",
+    Icon: dockerIcon,
+  },
+  {
     title: "NestJS",
     Icon: nestjsIcon,
   },
@@ -429,6 +332,10 @@ export const skills = [
   {
     title: "PostgreSQL",
     Icon: postgresqlIcon,
+  },
+  {
+    title: "Redis",
+    Icon: redisIcon,
   },
   {
     title: "Git",

@@ -120,10 +120,8 @@ function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
         >
-          I help teams automate workflows, integrate systems,
-          <br />
-          and build scalable software that reduces manual effort and accelerates
-          business operations.
+          I help founders and businesses design and build scalable and reliable
+          software products across Web2 and Web3
         </motion.p>
 
         {/* CTAs */}

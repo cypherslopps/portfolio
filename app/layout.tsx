@@ -5,6 +5,9 @@ import Navigation from "@/components/Navigation";
 export const metadata: Metadata = {
   title: "Joseph - SolidDev",
   description: "Personal Repository",
+  icons: {
+    icon: [{ url: "/favicon.png" }],
+  },
 };
 
 export default function RootLayout({
@@ -14,9 +17,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`antialiased`}
-      >
+      <body className={`antialiased`}>
         <Navigation />
         {children}
       </body>

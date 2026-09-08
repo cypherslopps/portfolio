@@ -96,15 +96,15 @@ function Hero() {
       >
         <div className="mb-6 flex flex-col items-center">
           <AnimatedText
-            text="Crafting Innovative"
+            text="Software Engineer"
             className="text-4xl sm:text-6xl font-bold tracking-tight text-white"
             animationType="wave"
             delay={0.1}
             duration={0.03}
           />
           <AnimatedText
-            text="Digital Solutions"
-            className="text-4xl sm:text-8xl font-bold tracking-tighter"
+            text="Building Scalable Products"
+            className="text-4xl sm:text-6xl md:text-8xl font-bold tracking-tighter"
             animationType="wave"
             delay={0.3}
             duration={0.03}

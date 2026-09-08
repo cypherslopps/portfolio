@@ -1,16 +1,16 @@
-"use client"
-import { motion } from "framer-motion"
-import { cn } from "@/lib/utils"
+"use client";
+import { motion } from "framer-motion";
+import { cn } from "@/lib/utils";
 
 interface AnimatedTextProps {
-  text: string
-  className?: string
-  once?: boolean
-  animationType?: "wave" | "typewriter" | "bounce" | "fade"
-  delay?: number
-  duration?: number
-  gradient?: boolean
-  gradientColors?: string
+  text: string;
+  className?: string;
+  once?: boolean;
+  animationType?: "wave" | "typewriter" | "bounce" | "fade";
+  delay?: number;
+  duration?: number;
+  gradient?: boolean;
+  gradientColors?: string;
 }
 
 export function AnimatedText({
@@ -23,8 +23,7 @@ export function AnimatedText({
   gradient = false,
   gradientColors = "from-purple-400 to-cyan-400",
 }: AnimatedTextProps) {
-  // Split text into words and characters
-  const words = text.split(" ")
+  const words = text.split(" ").filter(Boolean);
 
   // Animation variants
   const container = {
@@ -33,7 +32,7 @@ export function AnimatedText({
       opacity: 1,
       transition: { staggerChildren: duration, delayChildren: delay * i },
     }),
-  }
+  };
 
   const child = {
     wave: {
@@ -94,26 +93,31 @@ export function AnimatedText({
         },
       },
     },
-  }
+  };
 
-  const selectedAnimation = child[animationType]
+  const selectedAnimation = child[animationType];
 
   return (
     <motion.div
-      className="flex flex-wrap justify-center"
+      className="flex flex-wrap justify-center gap-x-2"
       variants={container}
       initial="hidden"
       whileInView="visible"
       viewport={{ once }}
     >
       {words.map((word, wordIndex) => (
-        <div key={wordIndex} className="mr-2 mb-2 inline-block">
+        <div
+          key={wordIndex}
+          className="mb-2 inline-block overflow-visible whitespace-nowrapS"
+        >
           {word.split("").map((char, charIndex) => (
             <motion.span
               key={`${wordIndex}-${charIndex}`}
               variants={selectedAnimation}
               className={cn(
-                gradient ? `bg-clip-text text-transparent bg-gradient-to-r ${gradientColors}` : "",
+                gradient
+                  ? `bg-clip-text text-transparent bg-gradient-to-r ${gradientColors}`
+                  : "",
                 className,
               )}
             >
@@ -123,6 +127,5 @@ export function AnimatedText({
         </div>
       ))}
     </motion.div>
-  )
+  );
 }
-

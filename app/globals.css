@@ -72,7 +72,7 @@
   }
 
   .heading {
-    @apply tracking-tighter text-3xl md:text-5xl font-bold mb-2 sm:mb-4 bg-clip-text text-transparent bg-gradient-to-r from-purple-300 to-cyan-300
+    @apply tracking-tighter text-3xl md:text-5xl font-bold mb-2 sm:mb-4 bg-clip-text text-transparent bg-gradient-to-r from-purple-300 to-cyan-300;
   }
 
   .subHeaderText {
@@ -84,13 +84,19 @@
   }
 
   .mask-toolbox {
-    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent)
+    mask-image: linear-gradient(
+      to right,
+      transparent,
+      black 10%,
+      black 90%,
+      transparent
+    );
   }
-  
+
   .animate-star-movement-bottom {
     animation: star-movement-bottom 6s linear infinite;
   }
-  
+
   .animate-star-movement-top {
     animation: star-movement-top 6s linear infinite;
   }
@@ -102,18 +108,27 @@
   .animate-move-right {
     animation: move-right 50s linear infinite;
   }
-  
+
   .animate-fadeIn {
     animation: fadeIn 1s ease-in-out forwards;
   }
-  
+
   .overflow-x-auto::-webkit-scrollbar {
     display: none;
   }
-  
+
   .overflow-x-auto {
     -ms-overflow-style: none; /* IE and Edge */
     scrollbar-width: none; /* Firefox */
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
   }
 }
 
@@ -131,7 +146,8 @@
 @keyframes move-left {
   0% {
     transform: translateX(0);
-  } 100% {
+  }
+  100% {
     transform: translateX(-50%);
   }
 }
@@ -139,23 +155,26 @@
 @keyframes move-right {
   0% {
     transform: translateX(-50%);
-  } 100% {
+  }
+  100% {
     transform: translateX(0);
   }
 }
 
 @keyframes star-movement-bottom {
-  0% { 
-    transform: translateX(0) 
-  } 100% { 
-    transform: translateX(-66.66%) 
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-66.66%);
   }
 }
 
 @keyframes star-movement-top {
-  0% { 
-    transform: translateX(0) 
-  } 100% { 
-    transform: translateX(66.66%) 
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(66.66%);
   }
 }

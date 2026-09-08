@@ -27,9 +27,13 @@ import expressIcon from "@/assets/icons/skills/express.svg";
 import nestjsIcon from "@/assets/icons/skills/nestjs.svg";
 import nextjsIcon from "@/assets/icons/skills/nextjs.svg";
 import nodejsIcon from "@/assets/icons/skills/nodejs.svg";
+import gsapIcon from "@/assets/icons/skills/gsap.svg";
+import web3jsIcon from "@/assets/icons/skills/web3js.svg";
+import ethersIcon from "@/assets/icons/skills/ethers.svg";
 import reactIcon from "@/assets/icons/skills/react.svg";
 import reduxIcon from "@/assets/icons/skills/redux.svg";
 import sanityIcon from "@/assets/icons/skills/sanity.svg";
+import shadcnIcon from "@/assets/icons/skills/shadcn.svg";
 import tanstackIcon from "@/assets/icons/skills/react-query.svg";
 import tailwindcssIcon from "@/assets/icons/skills/tailwindcss.svg";
 import typescriptIcon from "@/assets/icons/skills/typescript.svg";
@@ -107,6 +111,33 @@ export const testimonials = [
 ];
 
 export const projects: IProject[] = [
+  {
+    title: "ClubOnline247",
+    description:
+      "ClubOnline247 is a digital nightlife streaming platform where independent artists can perform LIVE, promote their music, connect with fans, enter contests, and build a real community around their work.",
+    role: "Backend Engineer",
+    contribution: [
+      "Developed a robust backend for a live audio/video streaming platform, enhancing user engagement for creators.",
+
+      "Designed a real-time room system using WebSocket gateway, enabling seamless interactions in concurrent rooms.",
+
+      "Implemented a comprehensive gift economy, facilitating transactions and creator payouts through Stripe Connect Express.",
+
+      "Built the API ensuring scalability and reliability for high-traffic events.",
+    ],
+    image: XDegen,
+    link: "app.clubonline247.com",
+    stacks: [
+      "Nest.js/Typescript",
+      "Stripe",
+      "Stripe Connect",
+      "Livekit",
+      "Socket.io",
+      "Cloud Firestore",
+      "Redis",
+      "BullMQ",
+    ],
+  },
   {
     title: "SolanaHunt",
     description:
@@ -260,110 +291,69 @@ export const resumeLink =
   "https://docs.google.com/document/d/1d3B8PobcWBZL_Z6RKvEhCuJtpBzrIpkHbH-NfF8wMM4/edit?usp=sharing";
 export const businessWhatsappLink = "https://wa.me/2348157483352";
 
-export const skills = [
+export const skillCategories = [
   {
-    title: "Python",
-    Icon: pythonIcon,
+    title: "Frontend",
+    skills: [
+      { title: "ReactJS", Icon: reactIcon },
+      { title: "Next.js", Icon: nextjsIcon },
+      { title: "TypeScript", Icon: typescriptIcon },
+      { title: "GSAP", Icon: gsapIcon },
+      { title: "TailwindCSS", Icon: tailwindcssIcon },
+      { title: "Shadcn UI", Icon: shadcnIcon },
+      { title: "Web3.js", Icon: web3jsIcon },
+      { title: "Ethers.js", Icon: ethersIcon },
+      { title: "HTML5", Icon: html5Icon },
+      { title: "CSS3", Icon: cSS3Icon },
+      { title: "TanStack Query", Icon: tanstackIcon },
+      { title: "Redux", Icon: reduxIcon },
+      { title: "Redux Toolkit", Icon: reduxIcon },
+    ],
   },
   {
-    title: "FastAPI",
-    Icon: fastAPIIcon,
+    title: "Backend",
+    skills: [
+      { title: "Node.js", Icon: nodejsIcon },
+      { title: "Express", Icon: expressIcon },
+      { title: "NestJS", Icon: nestjsIcon },
+      { title: "Python", Icon: pythonIcon },
+      { title: "FastAPI", Icon: fastAPIIcon },
+    ],
   },
   {
-    title: "ReactJS",
-    Icon: reactIcon,
+    title: "Mobile",
+    skills: [{ title: "React Native", Icon: reactNativeIcon }],
   },
   {
-    title: "Nextjs",
-    Icon: nextjsIcon,
+    title: "Database & ORM",
+    skills: [
+      { title: "PostgreSQL", Icon: postgresqlIcon },
+      { title: "MongoDB", Icon: mongoDBIcon },
+      { title: "Redis", Icon: redisIcon },
+      { title: "Prisma", Icon: prismaIcon },
+      { title: "Supabase", Icon: supabaseIcon },
+    ],
   },
   {
-    title: "Typescript",
-    Icon: typescriptIcon,
+    title: "DevOps & Cloud",
+    skills: [
+      { title: "AWS", Icon: awsIcon },
+      { title: "Docker", Icon: dockerIcon },
+      { title: "Git", Icon: gitIcon },
+      { title: "GitHub", Icon: githubIcon },
+    ],
   },
   {
-    title: "n8n",
-    Icon: n8nIcon,
+    title: "CMS & Content",
+    skills: [{ title: "Sanity", Icon: sanityIcon }],
   },
   {
-    title: "Tanstack Query",
-    Icon: tanstackIcon,
+    title: "Automation",
+    skills: [{ title: "n8n", Icon: n8nIcon }],
   },
   {
-    title: "NodeJS",
-    Icon: nodejsIcon,
-  },
-  {
-    title: "React Native",
-    Icon: reactNativeIcon,
-  },
-  {
-    title: "Express",
-    Icon: expressIcon,
-  },
-  {
-    title: "AWS",
-    Icon: awsIcon,
-  },
-  {
-    title: "Docker",
-    Icon: dockerIcon,
-  },
-  {
-    title: "NestJS",
-    Icon: nestjsIcon,
-  },
-  {
-    title: "CSS3",
-    Icon: cSS3Icon,
-  },
-  {
-    title: "TailwindCSS",
-    Icon: tailwindcssIcon,
-  },
-  {
-    title: "HTML5",
-    Icon: html5Icon,
-  },
-  {
-    title: "MongoDB",
-    Icon: mongoDBIcon,
-  },
-  {
-    title: "PostgreSQL",
-    Icon: postgresqlIcon,
-  },
-  {
-    title: "Redis",
-    Icon: redisIcon,
-  },
-  {
-    title: "Git",
-    Icon: gitIcon,
-  },
-  {
-    title: "Github",
-    Icon: githubIcon,
-  },
-  {
-    title: "Prisma",
-    Icon: prismaIcon,
-  },
-  {
-    title: "Sanity",
-    Icon: sanityIcon,
-  },
-  {
-    title: "Redux",
-    Icon: reduxIcon,
-  },
-  {
-    title: "Supabase",
-    Icon: supabaseIcon,
-  },
-  {
-    title: "Solidity",
-    Icon: solidityIcon,
+    title: "Blockchain",
+    skills: [{ title: "Solidity", Icon: solidityIcon }],
   },
 ];
 

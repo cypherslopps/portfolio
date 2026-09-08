@@ -14,12 +14,12 @@ const About = () => {
       <Image src={Grain} alt="" fill className="opacity-5 -z-10" />
 
       <div className="w-[95%] sm:w-11/12 lg:w-10/12 mx-auto grid gap-y-4 sm:gap-y-10 lg:grid-cols-[max-content_1fr] lg:gap-y-0 lg:gap-x-20">
-        <figure className="size-36 sm:size-40 lg:w-80 lg:h-96 rounded-md relative transition-transform duration-300 hover:rotate-6 hover:scale-110">
+        <figure className="size-36 sm:size-40 lg:size-52 rounded-md relative transition-transform duration-300">
           <Image
             src={Soliddev}
             alt="soliddev"
             fill
-            className="grayscale-[55%] hover:grayscale-0 object-cover rounded-full lg:rounded-none"
+            className="grayscale-[55%] object-cover rounded-full"
           />
         </figure>
 
@@ -49,11 +49,11 @@ const About = () => {
             </p>
 
             <p>
-              I have a keen interest in building payment systems across
-              decentralized and centralized sectors. {"I've"} been making
+              I have a keen interest in building payment systems (Fintech)
+              across decentralized and centralized sectors. {"I've"} been making
               extensive research on Fintech to better understand the best
               measure, bottlenecks and approches that works. Because a great
-              products {"isn't"} complete, if {"there're"} hitces around{" "}
+              products {"isn't"} complete, if {"there're"} hitches around{" "}
               {"it's"} payment infastructure.
               <br /> <br />I am a{" "}
               <strong className="text-white">team player</strong> and I enjoy
@@ -62,7 +62,7 @@ const About = () => {
 
             <p>
               Outside of coding, I enjoy collaborating with other builders,
-              watching <strong className="text-white">ANIMES</strong>, playing{" "}
+              watching <strong className="text-white">Animes</strong>, playing{" "}
               <strong className="text-white">
                 Games (P5, Snooker and more)
               </strong>

@@ -91,25 +91,6 @@ export const socials: ISocial[] = [
   },
 ];
 
-export const testimonials = [
-  {
-    id: 1,
-    name: "Abasifreke James",
-    role: "Software Developer | .NET | Kotlin | Python | Android | ASP.NET",
-    image: abasImage,
-    content:
-      "Joseph is an exceptional senior front-end developer. His track record of delivering sophisticated features across web2 and web3 with incredible skill and efficiency is truly impressive. His adeptness at handling complex tasks, learning from every challenge, and solving tough problems, combined with excellent communication, makes him an absolute pleasure to work with. His expertise and unwavering dedication have made a significant impact, and I have complete confidence in his abilities. I eagerly anticipate future collaborations with him.",
-  },
-  {
-    id: 2,
-    name: "Etieno Ekanem",
-    role: "Founder of AspectDigita || Product Designer and Brand Strategist",
-    image: etienoImage,
-    content:
-      "I had the pleasure of working one-on-one with Joseph Ibok (Jojo), and through working with him, I learned the importance of building knowledge. As a product Designer, I will say that he is the best software engineer to work with; he has patience and the ability to drive passion. He also has a wide range of knowledge on several other topics, both tech-related and non-tech-related. He delivers on time.",
-  },
-];
-
 export const projects: IProject[] = [
   {
     title: "ClubOnline247",

@@ -56,10 +56,6 @@ import casinoBetil from "@/assets/projects/casino-betil.png";
 import SolanaHunt from "@/assets/projects/solanahunt.png";
 import summarizerAI from "@/assets/projects/summarizerai.png";
 
-// Testimonials
-import abasImage from "@/assets/users-testimonials/abas.jpeg";
-import etienoImage from "@/assets/users-testimonials/etieno.jpeg";
-
 export const contact = {
   mobileNumber: "08028456343",
   whatsapp: "2348157483352",
@@ -271,6 +267,7 @@ export const side_quests = [
 export const resumeLink =
   "https://drive.google.com/drive/u/1/folders/1N_CVMEw0ATbM64ycfYSBiYGyUZpzUR_k";
 export const businessWhatsappLink = "https://wa.me/2348157483352";
+export const businessMail = "mailto:josephibok75@gmail.com";
 
 export const skillCategories = [
   {

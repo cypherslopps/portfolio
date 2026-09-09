@@ -1,12 +1,12 @@
 "use client";
 
-import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 
 import Soliddev from "@/assets/soliddev.jpeg";
 import Grain from "@/assets/grain.jpg";
 import { socials } from "@/lib/constants";
+import { scrollToSection } from "@/lib/scrollTo";
 
 const About = () => {
   return (
@@ -71,12 +71,12 @@ const About = () => {
                 Reading books (Poetry, Philosophy and more)
               </strong>
               . Reach out to discuss how we can build something amazing together{" "}
-              <Link
-                href="#cta"
-                className="decoration-1 underline decoration-dashed italic text-white hover:text-primary transition-colors duration-300 text-sm sm:text-[15px]"
+              <span
+                onClick={() => scrollToSection("#contact", { offset: -100 })}
+                className="decoration-1 underline decoration-dashed italic text-white hover:text-primary transition-colors duration-300 text-sm sm:text-[15px] cursor-pointer"
               >
                 Click below
-              </Link>
+              </span>
             </p>
           </div>
 

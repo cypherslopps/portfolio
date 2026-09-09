@@ -269,7 +269,7 @@ export const side_quests = [
 ];
 
 export const resumeLink =
-  "https://docs.google.com/document/d/1d3B8PobcWBZL_Z6RKvEhCuJtpBzrIpkHbH-NfF8wMM4/edit?usp=sharing";
+  "https://drive.google.com/drive/u/1/folders/1N_CVMEw0ATbM64ycfYSBiYGyUZpzUR_k";
 export const businessWhatsappLink = "https://wa.me/2348157483352";
 
 export const skillCategories = [

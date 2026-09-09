@@ -7,7 +7,8 @@ import { StarBorder } from "@/components/ui/star-border";
 import { ParticlesBackground } from "@/components/ui/particles-background";
 import { FloatingGradient } from "@/components/ui/floating-gradient";
 import { AnimatedText } from "@/components/ui/animated-text";
-import { businessWhatsappLink, resumeLink } from "@/lib/constants";
+import { resumeLink } from "@/lib/constants";
+import { scrollToSection } from "@/lib/scrollTo";
 
 function Hero() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -143,7 +144,7 @@ function Hero() {
               whileHover={{ x: 5 }}
               transition={{ type: "spring", stiffness: 400, damping: 10 }}
             >
-              View Resume
+              View Resume(s)
               <motion.span
                 className="ml-2"
                 animate={{ x: [0, 5, 0] }}
@@ -163,7 +164,7 @@ function Hero() {
             speed="7s"
             className="cursor-pointer hover:scale-105 transition-all duration-300 hover:shadow-[0_0_15px_rgba(6,182,212,0.3)]"
             btnClassName="bg-white text-black border-none"
-            onClick={() => window.open(businessWhatsappLink, "_blank")}
+            onClick={() => scrollToSection("#contact", { offset: -100 })}
           >
             <motion.span
               className="font-bold flex items-center gap-x-1.5"

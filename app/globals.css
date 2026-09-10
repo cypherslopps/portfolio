@@ -30,6 +30,10 @@
   --radius-xl: calc(var(--radius) + 4px);
 }
 
+@theme {
+  --breakpoint-xs: 30rem;
+}
+
 :root {
   --radius: 0.625rem;
   --background: hsl(240 10% 3.9%);
@@ -72,7 +76,7 @@
   }
 
   .heading {
-    @apply tracking-tighter text-3xl md:text-5xl font-bold mb-2 sm:mb-4 bg-clip-text text-transparent bg-gradient-to-r from-purple-300 to-cyan-300;
+    @apply tracking-tighter text-[1.4rem] xs:text-2xl sm:text-3xl md:text-5xl font-bold mb-2 sm:mb-4 bg-clip-text text-transparent bg-gradient-to-r from-purple-300 to-cyan-300;
   }
 
   .subHeaderText {

@@ -11,7 +11,7 @@ const Contact = () => {
         title="Have a project in mind? Reach out anytime."
       />
 
-      <div className="max-w-2xl mx-auto space-y-10">
+      <div className="max-w-2xl mx-auto space-y-4 sm:space-y-7 lg:space-y-10">
         <div className="grid sm:grid-cols-2 gap-6">
           {/* Email */}
           <a

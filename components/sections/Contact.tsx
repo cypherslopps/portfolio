@@ -5,7 +5,10 @@ import Icons from "../Icons";
 
 const Contact = () => {
   return (
-    <section id="contact" className="wrapper space-y-10 pb-16 lg:pt-10">
+    <section
+      id="contact"
+      className="wrapper space-y-10 pb-16 lg:pt-"
+    >
       <SectionHeader
         headline="Get In Touch"
         title="Have a project in mind? Reach out anytime."

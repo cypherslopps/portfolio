@@ -50,6 +50,7 @@ import fastAPIIcon from "@/assets/icons/skills/fastapi.svg";
 import redisIcon from "@/assets/icons/skills/redis.svg";
 
 // Projects
+import Clubonline247 from "@/assets/projects/clubonline.png";
 import XDegen from "@/assets/projects/xdegen.png";
 import SassLanding from "@/assets/projects/sass-landing.png";
 import casinoBetil from "@/assets/projects/casino-betil.png";
@@ -102,7 +103,7 @@ export const projects: IProject[] = [
 
       "Built the API ensuring scalability and reliability for high-traffic events.",
     ],
-    image: XDegen,
+    image: Clubonline247,
     link: "app.clubonline247.com",
     stacks: [
       "Nest.js/Typescript",

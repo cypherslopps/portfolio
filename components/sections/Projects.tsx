@@ -10,6 +10,7 @@ import Image from "next/image";
 import { IProject } from "@/index";
 import { projects } from "@/lib/constants";
 import SectionHeader from "../SectionHeader";
+// import { cn } from "@/lib/utils";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -118,7 +119,10 @@ const ProjectBlock = ({ project }: { project: IProject }) => {
   );
 };
 
+const tabs = ["Clients", "Side Projects"];
+
 const Projects = () => {
+  // const [activeTab, setActionTab] = useState(tabs[0]);
   useEffect(() => {
     // Kill any old triggers (good practice in React/Next.js)
     ScrollTrigger.getAll().forEach((t) => t.kill());
@@ -171,7 +175,25 @@ const Projects = () => {
 
   return (
     <section id="projects" className="wrapper space-y-10 pb-16 lg:pt-10">
-      <SectionHeader headline="Real-World Results" title="My Projects" />
+      <div>
+        <SectionHeader headline="Real-World Results" title="My Projects" />
+        {/* <div className="flex gap-x-4 mt-16">
+          {tabs.map((category) => (
+            <h3
+              key={category}
+              className={cn(
+                "text-lg cursor-pointer transition-all duration-300 hover:text-primary",
+                activeTab === category
+                  ? "text-primary font-bold"
+                  : "text-neutral-400 font-medium",
+              )}
+              onClick={() => setActionTab(category)}
+            >
+              {category}
+            </h3>
+          ))}
+        </div> */}
+      </div>
 
       <div className="w-full mt-10 bg-[#0a0b0d]">
         <div className="w-full relative grid grid-cols-1">

@@ -104,7 +104,7 @@ function Hero() {
             duration={0.03}
           />
           <AnimatedText
-            text="Building Scalable Products"
+            text="Building Reliable Systems"
             className="text-4xl sm:text-6xl md:text-8xl font-bold tracking-tighter"
             animationType="wave"
             delay={0.3}
@@ -121,8 +121,9 @@ function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
         >
-          I help founders and businesses design and build scalable and reliable
-          software products across Web2 and Web3
+          I help founders and businesses design and ship reliable software
+          products — from payment systems and backend infrastructure to fast,
+          high-performing solutions across Web2 and Web3.
         </motion.p>
 
         {/* CTAs */}

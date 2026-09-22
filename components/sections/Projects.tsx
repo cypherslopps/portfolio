@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -8,9 +8,9 @@ import { ArrowUpRight03FreeIcons } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
 import Image from "next/image";
 import { IProject } from "@/index";
-import { projects } from "@/lib/constants";
+import { projects, side_quests } from "@/lib/constants";
 import SectionHeader from "../SectionHeader";
-// import { cn } from "@/lib/utils";
+import { cn } from "@/lib/utils";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -58,20 +58,16 @@ const ProjectBlock = ({ project }: { project: IProject }) => {
             </header>
 
             {/* Contributions */}
-            {project?.contribution?.length && (
+            {project.contribution?.length && (
               <div className="space-y-3">
                 <h5 className="font-semibold">Key contributions</h5>
 
                 <ul className="list-disc grid gap-y-2 pl-5">
-                  {project?.contribution?.length &&
-                    project.contribution.map((c) => (
-                      <li
-                        key={c}
-                        className="text-sm text-white/80 leading-loose"
-                      >
-                        {c}
-                      </li>
-                    ))}
+                  {project.contribution.map((c) => (
+                    <li key={c} className="text-sm text-white/80 leading-loose">
+                      {c}
+                    </li>
+                  ))}
                 </ul>
               </div>
             )}
@@ -81,7 +77,7 @@ const ProjectBlock = ({ project }: { project: IProject }) => {
                 Technologies:
               </span>
               <div className="flex gap-x-1 gap-y-1 sm:gap-y-3 items-center flex-wrap">
-                {project.stacks.length > 0 &&
+                {project.stacks?.length > 0 &&
                   project.stacks.map((stack, idx) => (
                     <span
                       key={idx}
@@ -94,7 +90,7 @@ const ProjectBlock = ({ project }: { project: IProject }) => {
             </div>
           </div>
 
-          <div className="relative [perspective: 800px] hidden lg:block">
+          <div className="relative [perspective:800px] hidden lg:block">
             {project.image && (
               <div className="absolute w-[30rem] h-[15rem] top-1/2 -translate-y-1/2 right-5 opacity-0 scale-50 group-hover/project:opacity-100 lg:group-hover/project:scale-100 transition-all duration-500 z-10 rounded-md">
                 <Image
@@ -105,6 +101,7 @@ const ProjectBlock = ({ project }: { project: IProject }) => {
               </div>
             )}
           </div>
+
           {project.link && (
             <div className="hidden sm:inline-block lg:group-hover/project:pr-4 transition-all duration-700">
               <HugeiconsIcon
@@ -119,18 +116,23 @@ const ProjectBlock = ({ project }: { project: IProject }) => {
   );
 };
 
-const tabs = ["Clients", "Side Projects"];
+const tabs = ["Clients", "Side Projects"] as const;
 
 const Projects = () => {
-  // const [activeTab, setActionTab] = useState(tabs[0]);
+  const [activeTab, setActiveTab] = useState<(typeof tabs)[number]>("Clients");
+
+  const displayedProjects = activeTab === "Clients" ? projects : side_quests;
+
   useEffect(() => {
-    // Kill any old triggers (good practice in React/Next.js)
+    // Kill any old triggers
     ScrollTrigger.getAll().forEach((t) => t.kill());
 
-    // Target all project blocks
     const blocks = gsap.utils.toArray<HTMLElement>(".project-block");
 
-    gsap.to(blocks.slice(0, 4), {
+    // Reset and animate
+    gsap.set(blocks, { opacity: 0, y: 40 });
+
+    gsap.to(blocks, {
       opacity: 1,
       y: 0,
       stagger: 0.12,
@@ -138,7 +140,6 @@ const Projects = () => {
       ease: "power3.out",
     });
 
-    // Use batch for progressive reveal
     ScrollTrigger.batch(blocks, {
       start: "top 85%",
       end: "bottom 20%",
@@ -146,8 +147,8 @@ const Projects = () => {
         gsap.to(batch, {
           opacity: 1,
           y: 0,
-          duration: 1.5,
-          stagger: 0.18,
+          duration: 1.2,
+          stagger: 0.15,
           ease: "power3.out",
           overwrite: "auto",
         });
@@ -156,8 +157,8 @@ const Projects = () => {
         gsap.to(batch, {
           opacity: 0,
           y: 40,
-          duration: 0.8,
-          stagger: 0.1,
+          duration: 0.7,
+          stagger: 0.08,
           ease: "power3.in",
           overwrite: "auto",
         });
@@ -171,33 +172,35 @@ const Projects = () => {
     return () => {
       ScrollTrigger.getAll().forEach((t) => t.kill());
     };
-  }, []);
+  }, [activeTab]); // Re-run animation when tab changes
 
   return (
     <section id="projects" className="wrapper space-y-10 pb-16 lg:pt-10">
       <div>
         <SectionHeader headline="Real-World Results" title="My Projects" />
-        {/* <div className="flex gap-x-4 mt-16">
-          {tabs.map((category) => (
-            <h3
-              key={category}
+
+        {/* Tabs */}
+        <div className="flex gap-x-6 mt-10 sm:mt-14">
+          {tabs.map((tab) => (
+            <button
+              key={tab}
+              onClick={() => setActiveTab(tab)}
               className={cn(
-                "text-lg cursor-pointer transition-all duration-300 hover:text-primary",
-                activeTab === category
-                  ? "text-primary font-bold"
-                  : "text-neutral-400 font-medium",
+                "text-lg cursor-pointer transition-all duration-300 relative pb-1",
+                activeTab === tab
+                  ? "text-primary font-bold after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-primary"
+                  : "text-neutral-400 font-medium hover:text-neutral-200",
               )}
-              onClick={() => setActionTab(category)}
             >
-              {category}
-            </h3>
+              {tab}
+            </button>
           ))}
-        </div> */}
+        </div>
       </div>
 
-      <div className="w-full mt-10 bg-[#0a0b0d]">
+      <div className="w-full mt-8 bg-[#0a0b0d]">
         <div className="w-full relative grid grid-cols-1">
-          {projects.map((project) => (
+          {displayedProjects.map((project) => (
             <ProjectBlock key={project.title} project={project} />
           ))}
         </div>

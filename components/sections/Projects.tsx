@@ -25,11 +25,13 @@ const ProjectBlock = ({ project }: { project: IProject }) => {
       <div className="absolute bottom-0 left-0 w-full h-0 group-hover/project:h-full transition-all duration-500 bg-background/50" />
       <div className="relative space-y-5 lg:space-y-0">
         {project.image && (
-          <div className="h-[15rem] lg:hidden">
+          <div className="relative h-[15rem] lg:hidden">
             <Image
               src={project.image}
               alt={project.title}
-              className="w-full h-full size-full object-cover [background-position:top center]"
+              fill
+              sizes="(max-width: 1024px) 100vw, 15rem"
+              className="object-cover [background-position:top center] rounded-md"
             />
           </div>
         )}
@@ -96,7 +98,9 @@ const ProjectBlock = ({ project }: { project: IProject }) => {
                 <Image
                   src={project.image}
                   alt={project.title}
-                  className="h-full object-cover rounded-md"
+                  fill
+                  sizes="30rem"
+                  className="object-cover rounded-md"
                 />
               </div>
             )}

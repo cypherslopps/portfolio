@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Outfit, DM_Serif_Display } from "next/font/google";
 import "./globals.css";
 import Navigation from "@/components/Navigation";
 
@@ -8,7 +9,7 @@ export const metadata: Metadata = {
     template: "%s | Joseph Ibok",
   },
   description:
-    "Senior Software Engineer specializing in reliable backend systems, payment infrastructure, and high-performance applications across Web2 and Web3. I help founders build scalable products that solve real business problems.",
+    "Senior software engineer across backend, frontend and mobile. Reliable products for streaming, fintech, Web3, betting and AI teams.",
   keywords: [
     "Joseph Ibok",
     "Senior Software Engineer",
@@ -53,13 +54,25 @@ export const metadata: Metadata = {
   },
 };
 
+const outfit = Outfit({
+  subsets: ['latin']
+})
+
+const dm_serif_display = DM_Serif_Display({
+  subsets: ['latin'],
+  weight: '400'
+})
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html 
+      lang="en"
+      className={`${outfit.className} ${dm_serif_display.className}`}
+    >
       <head>
         <link rel="icon" type="image/png" href="/favicon.png" />
       </head>

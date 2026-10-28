@@ -15,14 +15,14 @@ const SectionHeader: FC<ISectionHeader> = ({
     <header className="flex flex-col items-center text-center">
       {headline && (
         <div className="flex justify-center">
-          <p className="uppercase font-semibold tracking-widest bg-gradient-to-r from-purple-300 to-cyan-300 text-transparent bg-clip-text">
+          <p className="text-sm font-medium text-primary">
             {headline}
           </p>
         </div>
       )}
-      <h2 className="heading !text-white mt-1.5 xs:mt-2">{title}</h2>
+      <h2 className="heading text-foreground mt-1.5 xs:mt-2">{title}</h2>
       {description && (
-        <p className="text-white/60 mx-auto text-center md:text-lg max-w-[30rem]">
+        <p className="text-muted-foreground mx-auto text-center md:text-lg max-w-[36rem] mt-3">
           {description}
         </p>
       )}

@@ -1,185 +1,74 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
-import { ElegantShape } from "@/components/ui/elegant-shape";
-import { StarBorder } from "@/components/ui/star-border";
-import { ParticlesBackground } from "@/components/ui/particles-background";
-import { FloatingGradient } from "@/components/ui/floating-gradient";
-import { AnimatedText } from "@/components/ui/animated-text";
 import { resumeLink } from "@/lib/constants";
 import { scrollToSection } from "@/lib/scrollTo";
+import Me from "@/assets/me.jpg";
+import Image from "next/image";
+import Icons from "../Icons";
+import { Button } from "../ui/button";
+import Link from "next/link";
 
 function Hero() {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const { scrollY } = useScroll();
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-
-  const titleOpacity = useTransform(scrollY, [0, 300], [1, 0]);
-  const titleY = useTransform(scrollY, [0, 300], [0, -100]);
-  const subtitleOpacity = useTransform(scrollY, [0, 200], [1, 0]);
-  const buttonsOpacity = useTransform(scrollY, [0, 250], [1, 0]);
-
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      if (containerRef.current) {
-        const { clientX, clientY } = e;
-        const { left, top, width, height } =
-          containerRef.current.getBoundingClientRect();
-        const x = (clientX - left) / width - 0.5;
-        const y = (clientY - top) / height - 0.5;
-        setMousePosition({ x, y });
-      }
-    };
-
-    window.addEventListener("mousemove", handleMouseMove);
-    return () => window.removeEventListener("mousemove", handleMouseMove);
-  }, []);
-
   return (
-    <section
-      ref={containerRef}
-      className="relative h-screen flex flex-col items-center justify-center px-4 overflow-hidden bg-[#030303] pt-12 sm:pt-0"
-    >
-      {/* Particles Background */}
-      <ParticlesBackground count={150} />
+    <section className="hero-section relative flex flex-col items-center justify-center overflow-hidden bg-background px-5 text-center">
+      <div className="hero-in relative z-10 mx-auto flex w-full max-w-5xl flex-col items-center">
+        <div className="mb-7 inline-flex items-center gap-2 text-xs font-medium text-mint sm:text-sm">
+          <span className="size-2 rounded-full bg-mint" />
+          Available for roles and contracts
+        </div>     
 
-      {/* Floating Gradients */}
-      <FloatingGradient
-        colors={["#a855f7", "#06b6d4", "#7c3aed", "#0ea5e9"]}
-        blur={120}
-        opacity={0.07}
-      />
-
-      {/* Elegant Shapes with mouse parallax */}
-      <motion.div
-        className="absolute inset-0 overflow-hidden"
-        style={{
-          x: mousePosition.x * -30,
-          y: mousePosition.y * -30,
-        }}
-      >
-        <ElegantShape
-          delay={0.3}
-          width={600}
-          height={140}
-          rotate={12}
-          gradient="from-purple-500/15"
-          className="left-[-10%] md:left-[-5%] top-[15%] md:top-[20%]"
-        />
-
-        <ElegantShape
-          delay={0.5}
-          width={500}
-          height={120}
-          rotate={-15}
-          gradient="from-cyan-500/[5]"
-          className="right-[-5%] md:right-[0%] top-[70%] md:top-[75%]"
-        />
-
-        <ElegantShape
-          delay={0.4}
-          width={300}
-          height={80}
-          rotate={-8}
-          gradient="from-violet-500/[0.15]"
-          className="left-[5%] md:left-[10%] bottom-[5%] md:bottom-[10%]"
-        />
-      </motion.div>
-
-      {/* Content */}
-      <motion.div
-        className="relative z-10 text-center max-w-3xl flex flex-col items-center"
-        style={{
-          y: titleY,
-          opacity: titleOpacity,
-        }}
-      >
-        <div className="mb-6 flex flex-col items-center">
-          <AnimatedText
-            text="Software Engineer"
-            className="text-4xl sm:text-6xl font-bold tracking-tight text-white"
-            animationType="wave"
-            delay={0.1}
-            duration={0.03}
+        <div className="relative mb-8">
+          <Image 
+            src={Me}
+            alt="Joseph Ibok"
+            className="hero-portrait size-40 rotate-[-10deg] rounded-[45%] object-cover sm:h-44 sm:w-44"
           />
-          <AnimatedText
-            text="Building Reliable Systems"
-            className="text-4xl sm:text-6xl md:text-8xl font-bold tracking-tighter"
-            animationType="wave"
-            delay={0.3}
-            duration={0.03}
-            gradient={true}
-            gradientColors="from-purple-300 via-white/90 to-cyan-300"
+
+          <Icons.sparkle
+            aria-hidden="true"
+            className="absolute -right-9 top-3 size-7 text-peach" 
           />
+
+          <span
+            aria-hidden="true"
+            className="absolute -left-8 bottom-2 text-3xl text-rose"
+          >✳</span>
+        </div> 
+
+        <p className="hero-caption mb-4 text-base font-medium">
+          Hi, I'm Joseph {' '}
+          <span aria-hidden="true">👋</span>
+        </p>
+
+        <h1 className="hero-title max-w-4xl text-foreground">
+          I build software that<br className="hidden sm:block" />{" "}
+          <span className="hero-emphasis">holds up when it matters.</span>
+        </h1>
+
+        <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
+          A senior software engineer working across backend,
+          frontend and mobile. I've shipped for streaming, fintech, Web3,
+          betting and AI teams — and I go deepest on the parts that break
+          quietly: payments, background jobs, real-time state.
+        </p>
+
+        <div className="mt-8 flex flex-wrap justify-center gap-3">
+          <Button size="lg" asChild className="h-12 rounded-full bg-peach px-6 text-ink hover:bg-peach/90">
+            <Link 
+              href={resumeLink} 
+              target="_blank" 
+              rel="noopener noreferrer"
+            >
+              <Icons.download />
+              Download CV
+            </Link>
+          </Button>
+          <Button size="lg" variant="outline" className="h-12 rounded-full border-primary/50 bg-primary/10 px-6 text-foreground hover:bg-primary/20" onClick={() => scrollToSection("#contact", { offset: -100 })}>
+            Let's talk<Icons.arrow_up_right />
+          </Button>
         </div>
-
-        <motion.p
-          className="text-base sm:text-lg text-white/65 mb-8 leading-relaxed font-light tracking-wide max-w-2xl mx-auto"
-          style={{ opacity: subtitleOpacity }}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-        >
-          I help founders and businesses design and ship reliable software
-          products — from payment systems and backend infrastructure to fast,
-          high-performing solutions across Web2 and Web3.
-        </motion.p>
-
-        {/* CTAs */}
-        <motion.div
-          className="flex flex-wrap justify-center gap-4 mb-12 "
-          style={{ opacity: buttonsOpacity }}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.8 }}
-        >
-          <StarBorder
-            color="#a855f7"
-            speed="5s"
-            className="group cursor-pointer hover:scale-105 transition-all duration-300 hover:shadow-[0_0_15px_rgba(168,85,247,0.3)]"
-            onClick={() => window.open(resumeLink, "_blank")}
-          >
-            <motion.span
-              className="flex items-center"
-              whileHover={{ x: 5 }}
-              transition={{ type: "spring", stiffness: 400, damping: 10 }}
-            >
-              View Resume(s)
-              <motion.span
-                className="ml-2"
-                animate={{ x: [0, 5, 0] }}
-                transition={{
-                  duration: 1.5,
-                  repeat: Number.POSITIVE_INFINITY,
-                  ease: "easeInOut",
-                }}
-              >
-                →
-              </motion.span>
-            </motion.span>
-          </StarBorder>
-
-          <StarBorder
-            color="#06b6d4"
-            speed="7s"
-            className="cursor-pointer hover:scale-105 transition-all duration-300 hover:shadow-[0_0_15px_rgba(6,182,212,0.3)]"
-            btnClassName="bg-white text-black border-none"
-            onClick={() => scrollToSection("#contact", { offset: -100 })}
-          >
-            <motion.span
-              className="font-bold flex items-center gap-x-1.5"
-              whileHover={{ y: 5 }}
-              transition={{ type: "spring", stiffness: 400, damping: 10 }}
-            >
-              <span className="text-xl">👏</span>
-              {"Let's"} connect
-            </motion.span>
-          </StarBorder>
-        </motion.div>
-      </motion.div>
-
-      <div className="absolute inset-0 bg-gradient-to-t from-[#030303] via-transparent to-[#030303]/80 pointer-events-none" />
+        <Button variant="ghost" size="icon" className="mt-7 rounded-full text-muted-foreground" aria-label="Explore my projects" title="Explore my projects" onClick={() => scrollToSection("#projects", { offset: -80 })}><Icons.arrow_down /></Button>
+      </div>
     </section>
   );
 }

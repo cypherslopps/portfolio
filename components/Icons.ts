@@ -9,7 +9,13 @@ import {
   RiWhatsappFill,
   RiWhatsappLine,
 } from "@remixicon/react";
-import { Mail } from "lucide-react";
+import { 
+  Mail, 
+  ArrowDown, 
+  ArrowUpRight, 
+  Download, 
+  Sparkle 
+} from "lucide-react";
 
 const Icons = {
   github: RiGithubFill,
@@ -22,6 +28,10 @@ const Icons = {
   arrowRight: RiArrowRightLine,
   frontend: RiComputerFill,
   mail_outline: Mail,
+  arrow_down: ArrowDown,
+  arrow_up_right: ArrowUpRight,
+  download: Download,
+  sparkle: Sparkle
 };
 
 export default Icons;

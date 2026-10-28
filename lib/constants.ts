@@ -1,10 +1,8 @@
 import {
   CodeIcon,
   BlockGameIcon,
-  SmartPhone02Icon,
   LaptopIcon,
-  ChatBotIcon,
-  RepeatIcon,
+  ServerStackIcon
 } from "@hugeicons/core-free-icons";
 import Icons from "@/components/Icons";
 
@@ -56,6 +54,9 @@ import SassLanding from "@/assets/projects/sass-landing.png";
 import casinoBetil from "@/assets/projects/casino-betil.png";
 import SolanaHunt from "@/assets/projects/solanahunt.png";
 import summarizerAI from "@/assets/projects/summarizerai.png";
+import SolanaHub from "@/assets/projects/solanahub.png";
+import ZkMinter from "@/assets/projects/zkminter.png";
+import Ballot from "@/assets/projects/ballot.png";
 
 export const contact = {
   mobileNumber: "08028456343",
@@ -63,6 +64,7 @@ export const contact = {
   region: "Uyo, Akwa Ibom - Nigeria",
   mail: "josephibok75@gmail.com",
   name: "Joseph Ibok",
+  linkedin: "https://linkedin.com/in/joseph-ibok"
 };
 
 export const socials: ISocial[] = [
@@ -88,9 +90,25 @@ export const socials: ISocial[] = [
   },
 ];
 
+export const testimonials = [
+  {
+    quote:
+      "Joseph took a payment flow that kept double-charging customers and made it boring in the best way. He explains trade-offs clearly and ships when he says he will.",
+    name: "Client Name",
+    role: "Founder, Company One",
+  },
+  {
+    quote:
+      "He picked up our codebase in days, asked the right questions, and left it cleaner than he found it. Our frontend finally feels fast.",
+    name: "Client Name",
+    role: "Product Lead, Company Two",
+  }
+];
+
 export const projects: IProject[] = [
   {
     title: "ClubOnline247",
+    period: "2024 – 2025",
     description:
       "A live nightlife streaming platform where venues and creators perform live, engage fans, and receive payouts. The core challenge was moving money safely without slowing down the live experience.",
     role: "Backend Engineer",
@@ -114,13 +132,14 @@ export const projects: IProject[] = [
   },
   {
     title: "SolanaHunt",
+    period: "2024",
     description:
       "A discovery platform for the Solana ecosystem that helps developers and enthusiasts find, vote on, and showcase projects. Focused on performance, consistent state, and frictionless wallet authentication.",
     role: "Fullstack Engineer",
     contribution: [
-      "Improved application performance by 25% through optimized data fetching, code splitting, and cleaner state management.",
+      "Reworked data fetching, code splitting and state management to speed up the app.",
       "Centralized application state to eliminate flickering and stale data across the product.",
-      "Redesigned key interfaces and contributed to a 30% increase in user engagement.",
+      "Redesigned key interfaces to make discovery and voting easier.",
       "Integrated PrivyAuth for secure, passwordless crypto-wallet sign-in.",
     ],
     image: SolanaHunt,
@@ -136,8 +155,18 @@ export const projects: IProject[] = [
       "MongoDB",
     ],
   },
+  { 
+    title: "SolanaHub", 
+    period: "2024", 
+    description: "Community hub for Solana projects: listings, profiles and media uploads, with a typed Express API.", 
+    role: "Fullstack Engineer", 
+    image: SolanaHub, 
+    link: "https://solahub.online/", 
+    stacks: ["React", "Node.js / Express", "TypeScript", "Prisma", "PostgreSQL", "Supabase", "Cloudinary"] 
+  },
   {
     title: "XDegen",
+    period: "2023 – 2024",
     description:
       "A decentralized learning and streaming platform for crypto and Web3 users. Built multi-step flows, live sessions, and reliable real-time notifications.",
     role: "Frontend / Fullstack Engineer",
@@ -145,7 +174,7 @@ export const projects: IProject[] = [
       "Built multi-step academy/course creation flow with robust validation using React Hook Form and Zod.",
       "Integrated Pinata (IPFS) for file uploads and Solana smart contracts for wallet-based payouts.",
       "Implemented Livekit for live video sessions and scheduling.",
-      "Integrated Dialect for real-time, token-gated notifications reaching 1,000+ daily users with 98% delivery reliability.",
+      "Integrated Dialect for real-time, token-gated notifications reaching 1,000+ daily users.",
     ],
     image: XDegen,
     link: "https://xdegen.xyz/",
@@ -163,6 +192,7 @@ export const projects: IProject[] = [
   },
   {
     title: "CasinoBetil",
+    period: "2023",
     description:
       "A real-money sports betting platform where speed and correctness directly affect user trust and retention.",
     role: "Senior Frontend Engineer",
@@ -184,14 +214,15 @@ export const projects: IProject[] = [
   },
   {
     title: "TonBunnies",
+    period: "2024",
     description:
       "A Web3 game on the TON blockchain with NFT collectibles, minting, ownership verification, and a Telegram Mini App.",
     role: "Web3 Frontend Engineer",
     contribution: [
       "Led the frontend for viewing, minting, and verifying ownership of digital collectibles.",
       "Built a Telegram Mini App integrating external APIs and blockchain functions.",
-      "Optimized TON SDK usage to reduce transaction wait times by 30%.",
-      "Improved player retention by 25% across a user base of 10,000+ players and contributed to $15k+ project income.",
+      "Tuned TON SDK usage to cut transaction wait times.",
+      "Shipped to a player base of 10,000+.",
     ],
     image: null,
     link: null,
@@ -205,6 +236,7 @@ export const projects: IProject[] = [
   },
   {
     title: "OneBeam",
+    period: "2022 – 2023",
     description:
       "Early-stage event and ticketing platform focused on clear organizer and attendee experiences.",
     role: "Frontend Engineer",
@@ -219,12 +251,13 @@ export const projects: IProject[] = [
   },
 ];
 
-export const side_quests = [
+export const side_quests: IProject[] = [
   {
     title: "Transaction Risk API",
     description:
       "A production-grade payment backend that moves funds between wallets while surviving network retries, concurrent transfers, and partial failures — without losing, duplicating, or double-spending money.",
-    role: "Backend Engineer (Personal Project)",
+    role: "Backend Engineer",
+    period: "2026 – present",
     contribution: [
       "Designed a reservation-based wallet system (hold → confirm/release) instead of direct balance edits.",
       "Implemented idempotency keys, database-level locking with consistent lock ordering, and an explicit state machine with full audit trail.",
@@ -245,6 +278,7 @@ export const side_quests = [
   },
   {
     title: "Sass Landing",
+    period: "2023",
     description: "Animated aesthetic landing page for SaaS projects.",
     role: "Frontend Engineer",
     image: SassLanding,
@@ -257,6 +291,7 @@ export const side_quests = [
   },
   {
     title: "SummarizerAI",
+    period: "2024",
     description:
       "Fast, privacy-focused text summarization tool powered by modern LLMs.",
     role: "Frontend Engineer (AI Integration)",
@@ -275,6 +310,30 @@ export const side_quests = [
       "Lucide React",
     ],
   },
+  { 
+    title: "zkMinter", 
+    period: "2024", 
+    description: "Mint compressed tokens on Solana using ZK Light Protocol, with metadata pinned to IPFS.", 
+    role: "Frontend Engineer", 
+    image: ZkMinter, 
+    link: "https://zk-sol-minter.vercel.app/", 
+    stacks: ["Next.js", "Solana Web3.js", "ZK Light Protocol", "Supabase", "Pinata"] },
+  { 
+    title: "Ballot", 
+    period: "2023", 
+    description: "On-chain voting app on Solana: create polls, connect a wallet, vote with animated results.", 
+    role: "Frontend Engineer", 
+    image: Ballot, 
+    link: "https://ballot-pink.vercel.app/", 
+    stacks: ["React (Vite)", "Solana Web3.js", "GSAP", "TailwindCSS"] },
+  { 
+    title: "Scraper", 
+    period: "2022", 
+    description: "Headless Selenium scraper with a small Express API for scheduled data pulls.", 
+    role: "Backend Engineer", 
+    image: null, 
+    link: "https://github.com/cypherslopps/nodejs-scraper", 
+    stacks: ["Node.js / Express", "Selenium WebDriver"] },
 ];
 
 export const resumeLink =
@@ -351,38 +410,26 @@ export const skillCategories = [
 export const services: IService[] = [
   {
     Icon: CodeIcon,
-    title: "API Development & Backend Systems",
+    title: "Backend & APIs",
     description:
-      "I design and build production-grade APIs and backend systems focused on reliability, clean architecture, and growth. This includes asynchronous processing, background jobs, caching, and workflows that stay correct under load and failure.",
-  },
-  {
-    Icon: BlockGameIcon,
-    title: "Blockchain & Smart Contract Integrations",
-    description:
-      "I build and integrate dApps, wallet authentication, and on-chain features that fit real product needs — from ownership verification to payout flows.",
-  },
-  {
-    Icon: SmartPhone02Icon,
-    title: "Mobile Applications",
-    description:
-      "I build cross-platform mobile apps with React Native, focusing on clear UX, reliable performance, and features that keep users engaged on both iOS and Android.",
+      "Production APIs, background jobs and data flows that stay correct under load and failure.",
   },
   {
     Icon: LaptopIcon,
-    title: "Frontend Development",
+    title: "Frontend & Mobile",
     description:
-      "I craft fast, consistent Web2 and Web3 interfaces. I focus on performance, state consistency, validated multi-step flows, and removing friction so users actually stay and convert.",
+      "Fast, consistent web and React Native apps with validated flows that users actually finish.",
   },
   {
-    Icon: ChatBotIcon,
-    title: "Bots & Operational Tools",
+    Icon: BlockGameIcon,
+    title: "Payments & Web3",
     description:
-      "I build automation-driven bots for Discord, Telegram, and internal tooling that trigger workflows, process data, and integrate with external systems — acting as reliable operational tools rather than simple messaging bots.",
+      "Payouts, wallets and on-chain features where money has to move exactly once.",
   },
   {
-    Icon: RepeatIcon,
-    title: "n8n Automation & AI Workflows",
+    Icon: ServerStackIcon,
+    title: "DevOps & Reliability",
     description:
-      "I design scalable automation systems with n8n and API-driven services. Workflows include retries, error handling, logging, and idempotency so they remain reliable as volume and complexity grow.",
+      "CI/CD pipelines, containerized deployments and monitoring that keep releases smooth and issues visible.",
   },
 ];

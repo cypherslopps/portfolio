@@ -16,6 +16,7 @@ type IProject = {
   contribution?: string[];
   link: string | null;
   stacks: string[];
+  period: string;
 };
 
 type IService = {

@@ -1,5 +1,7 @@
+import Link from "next/link";
+
 import SectionHeader from "../SectionHeader";
-import { businessMail, businessWhatsappLink } from "@/lib/constants";
+import { businessMail, businessWhatsappLink, resumeLink } from "@/lib/constants";
 import { ContactForm } from "../ContactForm";
 import Icons from "../Icons";
 
@@ -12,16 +14,16 @@ const Contact = () => {
       <SectionHeader
         headline="Get In Touch"
         title="Have a project in mind? Reach out anytime."
+        description="Tell me what you're building and where it's stuck. I'll give you an honest read on it — and if we work well together, I'm open to projects, contracts and full-time roles."
       />
 
       <div className="max-w-2xl mx-auto space-y-4 sm:space-y-7 lg:space-y-10">
         <div className="grid sm:grid-cols-2 gap-6">
-          {/* Email */}
-          <a
+          <Link
             href={businessMail}
-            className="group flex items-center gap-4 p-6 rounded-2xl bg-secondary/50 border border-border hover:border-primary/50 transition-all"
+            className="contact-link group flex items-center gap-4 p-6 rounded-lg bg-secondary/50 border border-border hover:border-primary/50 transition-all"
           >
-            <div className="p-3 rounded-xl bg-primary/10 text-primary">
+            <div className="contact-icon p-3 rounded-lg bg-primary/10 text-primary">
               <Icons.mail_outline className="w-6 h-6" />
             </div>
             <div className="text-left">
@@ -30,16 +32,15 @@ const Contact = () => {
                 {businessMail.replace("mailto:", "")}
               </p>
             </div>
-          </a>
+          </Link>
 
-          {/* WhatsApp */}
-          <a
+          <Link
             href={businessWhatsappLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="group flex items-center gap-4 p-6 rounded-2xl bg-secondary/50 border border-border hover:border-primary/50 transition-all"
+            className="contact-link group flex items-center gap-4 p-6 rounded-lg bg-secondary/50 border border-border hover:border-primary/50 transition-all"
           >
-            <div className="p-3 rounded-xl bg-primary/10 text-primary">
+            <div className="contact-icon p-3 rounded-lg bg-primary/10 text-primary">
               <Icons.whatsapp_outline className="w-6 h-6" />
             </div>
             <div className="text-left">
@@ -48,7 +49,21 @@ const Contact = () => {
                 Chat with me
               </p>
             </div>
-          </a>
+          </Link>
+
+          <Link
+            href={resumeLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="sm:col-span-2 group flex items-center gap-4 p-6 rounded-lg bg-secondary/50 border border-border hover:border-primary/50 transition-all"
+          >
+            <div className="text-left">
+              <p className="font-medium">CVs</p>
+              <p className="text-sm text-muted-foreground group-hover:text-primary transition-colors">
+                Frontend, backend, fintech & case studies
+              </p>
+            </div>
+          </Link>
         </div>
 
         {/* Contact Form */}

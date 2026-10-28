@@ -61,6 +61,7 @@ const About = () => {
               <Link
                 key={title}
                 href={link}
+                target="_blank"
                 className="transition-transform duration-300 hover:scale-110"
               >
                 <Icon />

@@ -24,3 +24,8 @@ type IService = {
   title: string;
   description: string;
 };
+
+type IClientContact = {
+  label: string
+  value: "email" | "whatsapp"
+};

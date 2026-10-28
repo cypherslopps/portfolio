@@ -16,8 +16,19 @@ import {
 import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
 import { cn } from "@/lib/utils";
+import { IClientContact } from "..";
 
 const duration = ["How soon?", "1-2 weeks", "2-4 weeks", "1-2 months", "Flexible"];
+const client_contact: IClientContact[] = [
+  {
+    label: "Email",
+    value: "email"
+  },
+  {
+    label: "Phone / WhatsApp Number",
+    value: "whatsapp"
+  }
+];
 
 const items = [
   { label: "How soon?", value: null },
@@ -30,7 +41,8 @@ const items = [
 const contactSchema = z.object({
   name: z
     .string({ message: "Please in your name" }),
-  email: z.string({ message: "Please fill in your email" }).email("Please enter a valid email address"),
+  email: z.string({ message: "Please fill in your email" }).email("Please enter a valid email address").optional(),
+  whatsapp: z.string({ message: "Please fill in your WhatsApp number" }).optional(),
   subject: z.string().max(100, "Subject is too long").optional(),
   budget: z.string().max(100, "Subject is too long").optional(),
   duration: z.enum(duration, { message: "Please select project duration." }).exclude(["How soon?"]),
@@ -46,6 +58,7 @@ const intents = ["A project", "A full-time role", "A contract role", "Just sayin
 
 export function ContactForm() {
   const [intent, setIntent] = useState<string>("A project");
+  const [contact, setContact] = useState<IClientContact["value"]>("email")
   const [status, setStatus] = useState<
     "idle" | "loading" | "success" | "error"
   >("idle");
@@ -54,6 +67,7 @@ export function ContactForm() {
     initialValues: {
       name: "",
       email: "",
+      whatsapp: "",
       subject: "",
       duration: "How soon?",
       budget: "",
@@ -72,7 +86,6 @@ export function ContactForm() {
           process.env.NEXT_PUBLIC_WEB3_FORM_ACCESS_KEY!,
         );
 
-        console.log(formData.keys().toArray(), formData.values().toArray(), formData.getAll(""))
         const res = await fetch("https://api.web3forms.com/submit", {
           method: "POST",
           body: formData,
@@ -85,7 +98,6 @@ export function ContactForm() {
           setStatus("error");
         }
       } catch (error) {
-        console.error(error);
         setStatus("error");
       }
     },
@@ -113,36 +125,73 @@ export function ContactForm() {
         </div>
       </div>
 
-      <div className="grid sm:grid-cols-2 gap-5">
-        <div>
-          <Input
-            type="text"
-            name="name"
-            placeholder="Your name"
-            value={formik.values.name}
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-            className="w-full px-4 py-3 rounded-lg bg-secondary/50 border border-border focus:border-primary outline-none transition"
-          />
-          {formik.touched.name && formik.errors.name && (
-            <p className="mt-1.5 text-sm text-destructive">{formik.errors.name}</p>
-          )}
+      <div>
+        <Input
+          type="text"
+          name="name"
+          placeholder="Your name"
+          value={formik.values.name}
+          onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
+          className="w-full px-4 py-3 rounded-lg bg-secondary/50 border border-border focus:border-primary outline-none transition"
+        />
+        {formik.touched.name && formik.errors.name && (
+          <p className="mt-1.5 text-sm text-destructive">{formik.errors.name}</p>
+        )}
+      </div>
+
+      <div className="space-y-3">
+        <div className="flex items-center gap-x-1">
+          {client_contact.map(({ label, value }) => (
+            <span
+              key={label}
+              onClick={() => {
+                formik.setFieldValue(contact, "");
+                setContact(value)
+              }}
+              className={cn(
+                "text-sm rounded-full cursor-pointer py-1 px-2",
+                contact === value ? "bg-lilac text-black" : "text-white"
+              )}
+            >
+              {label}
+            </span>
+          ))}
         </div>
 
-        <div>
-          <Input
-            type="email"
-            name="email"
-            placeholder="Email address"
-            value={formik.values.email}
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-            className="w-full px-4 py-3 rounded-lg bg-secondary/50 border border-border focus:border-primary outline-none transition"
-          />
-          {formik.touched.email && formik.errors.email && (
-            <p className="mt-1.5 text-sm text-destructive">{formik.errors.email}</p>
-          )}
-        </div>
+        {contact === "email" && (
+          <div>
+            <Input
+              type="email"
+              name="email"
+              placeholder="Email address"
+              value={formik.values.email}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              className="w-full px-4 py-3 rounded-lg bg-secondary/50 border border-border focus:border-primary outline-none transition"
+            />
+            {formik.touched.email && formik.errors.email && (
+              <p className="mt-1.5 text-sm text-destructive">{formik.errors.email}</p>
+            )}
+          </div>
+        )}
+
+        {contact === "whatsapp" && (
+          <div>
+            <Input
+              type="text"
+              name="whatsapp"
+              placeholder="+00 ---------"
+              value={formik.values.whatsapp}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              className="w-full px-4 py-3 rounded-lg bg-secondary/50 border border-border focus:border-primary outline-none transition"
+            />
+            {formik.touched.whatsapp && formik.errors.whatsapp && (
+              <p className="mt-1.5 text-sm text-destructive">{formik.errors.whatsapp}</p>
+            )}
+          </div>
+        )}
       </div>
 
       <div>
@@ -172,7 +221,7 @@ export function ContactForm() {
         {formik.touched.subject && formik.errors.subject && (
           <p className="mt-1.5 text-sm text-destructive">{formik.errors.subject}</p>
         )}
-        <span className="text-zinc-500 text-xs block mt-1">Not sure? Leave blank</span>
+        <span className="text-zinc-500 text-xs block mt-1.5">Not sure? Leave blank</span>
       </div>
 
       <div>

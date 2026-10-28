@@ -93,22 +93,22 @@ export const socials: ISocial[] = [
 export const testimonials = [
   {
     quote:
-      "Joseph took a payment flow that kept double-charging customers and made it boring in the best way. He explains trade-offs clearly and ships when he says he will.",
-    name: "Client Name",
-    role: "Founder, Company One",
+      "Joseph is a meticulous and very thorough individual. \n\n I worked with him on a project, and I was really impressed by the level of attention he paid to even the minutest of details. \n\n I highly recommend him because he is good at what he does and most importantly, he is disciplined.",
+    name: "Mfonobong Nyoho",
+    role: "Project Manager, Clubonline247",
   },
   {
     quote:
-      "He picked up our codebase in days, asked the right questions, and left it cleaner than he found it. Our frontend finally feels fast.",
-    name: "Client Name",
-    role: "Product Lead, Company Two",
+      "Joseph is an exceptional senior front-end developer. His adeptness at handling complex tasks, learning from every challenge, and solving tough problems, combined with excellent communication, makes him an absolute pleasure to work with.",
+    name: "Abasifreke James",
+    role: "Software Engineer",
   }
 ];
 
 export const projects: IProject[] = [
   {
     title: "ClubOnline247",
-    period: "2024 – 2025",
+    period: "Jan 2026 – Jun 2026",
     description:
       "A live nightlife streaming platform where venues and creators perform live, engage fans, and receive payouts. The core challenge was moving money safely without slowing down the live experience.",
     role: "Backend Engineer",
@@ -132,7 +132,7 @@ export const projects: IProject[] = [
   },
   {
     title: "SolanaHunt",
-    period: "2024",
+    period: "May 2025 - Nov 2025",
     description:
       "A discovery platform for the Solana ecosystem that helps developers and enthusiasts find, vote on, and showcase projects. Focused on performance, consistent state, and frictionless wallet authentication.",
     role: "Fullstack Engineer",
@@ -157,7 +157,7 @@ export const projects: IProject[] = [
   },
   { 
     title: "SolanaHub", 
-    period: "2024", 
+    period: "May 2025 - Jun 2025", 
     description: "Community hub for Solana projects: listings, profiles and media uploads, with a typed Express API.", 
     role: "Fullstack Engineer", 
     image: SolanaHub, 
@@ -166,7 +166,7 @@ export const projects: IProject[] = [
   },
   {
     title: "XDegen",
-    period: "2023 – 2024",
+    period: "May 2025 – Jun 2026",
     description:
       "A decentralized learning and streaming platform for crypto and Web3 users. Built multi-step flows, live sessions, and reliable real-time notifications.",
     role: "Frontend / Fullstack Engineer",
@@ -192,7 +192,7 @@ export const projects: IProject[] = [
   },
   {
     title: "CasinoBetil",
-    period: "2023",
+    period: "Jun 2024 - Sep 2024",
     description:
       "A real-money sports betting platform where speed and correctness directly affect user trust and retention.",
     role: "Senior Frontend Engineer",
@@ -214,7 +214,7 @@ export const projects: IProject[] = [
   },
   {
     title: "TonBunnies",
-    period: "2024",
+    period: "May 2023 - Sep 2023",
     description:
       "A Web3 game on the TON blockchain with NFT collectibles, minting, ownership verification, and a Telegram Mini App.",
     role: "Web3 Frontend Engineer",
@@ -236,10 +236,10 @@ export const projects: IProject[] = [
   },
   {
     title: "OneBeam",
-    period: "2022 – 2023",
+    period: "Sep 2025 – Nov 2025",
     description:
       "Early-stage event and ticketing platform focused on clear organizer and attendee experiences.",
-    role: "Frontend Engineer",
+    role: "Frontend Engineer (Contract)",
     contribution: [
       "Built event creation flows and ticket template features.",
       "Implemented event landing pages and key parts of the merchant dashboard.",
@@ -278,7 +278,7 @@ export const side_quests: IProject[] = [
   },
   {
     title: "Sass Landing",
-    period: "2023",
+    period: "2024",
     description: "Animated aesthetic landing page for SaaS projects.",
     role: "Frontend Engineer",
     image: SassLanding,
@@ -291,7 +291,7 @@ export const side_quests: IProject[] = [
   },
   {
     title: "SummarizerAI",
-    period: "2024",
+    period: "2025",
     description:
       "Fast, privacy-focused text summarization tool powered by modern LLMs.",
     role: "Frontend Engineer (AI Integration)",
@@ -312,7 +312,7 @@ export const side_quests: IProject[] = [
   },
   { 
     title: "zkMinter", 
-    period: "2024", 
+    period: "2025", 
     description: "Mint compressed tokens on Solana using ZK Light Protocol, with metadata pinned to IPFS.", 
     role: "Frontend Engineer", 
     image: ZkMinter, 
@@ -320,7 +320,7 @@ export const side_quests: IProject[] = [
     stacks: ["Next.js", "Solana Web3.js", "ZK Light Protocol", "Supabase", "Pinata"] },
   { 
     title: "Ballot", 
-    period: "2023", 
+    period: "2025", 
     description: "On-chain voting app on Solana: create polls, connect a wallet, vote with animated results.", 
     role: "Frontend Engineer", 
     image: Ballot, 
@@ -328,7 +328,7 @@ export const side_quests: IProject[] = [
     stacks: ["React (Vite)", "Solana Web3.js", "GSAP", "TailwindCSS"] },
   { 
     title: "Scraper", 
-    period: "2022", 
+    period: "2024", 
     description: "Headless Selenium scraper with a small Express API for scheduled data pulls.", 
     role: "Backend Engineer", 
     image: null, 

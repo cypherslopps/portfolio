@@ -48,8 +48,8 @@ function Hero() {
         <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
           A senior software engineer working across backend,
           frontend and mobile. I've shipped for streaming, fintech, Web3,
-          betting and AI teams — and I go deepest on the parts that break
-          quietly: payments, background jobs, real-time state.
+          betting and AI teams, and I go deepest on the parts that break
+          quietly {/* : payments, background jobs, real-time state. */}
         </p>
 
         <div className="mt-8 flex flex-wrap justify-center gap-3">

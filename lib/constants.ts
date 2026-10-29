@@ -54,7 +54,7 @@ import SassLanding from "@/assets/projects/sass-landing.png";
 import casinoBetil from "@/assets/projects/casino-betil.png";
 import SolanaHunt from "@/assets/projects/solanahunt.png";
 import summarizerAI from "@/assets/projects/summarizerai.png";
-import SolanaHub from "@/assets/projects/solanahub.png";
+import SolaHub from "@/assets/projects/solanahub.png";
 import ZkMinter from "@/assets/projects/zkminter.png";
 import Ballot from "@/assets/projects/ballot.png";
 
@@ -132,7 +132,7 @@ export const projects: IProject[] = [
   },
   {
     title: "SolanaHunt",
-    period: "May 2025 - Nov 2025",
+    period: "Jul 2025 - Oct 2025",
     description:
       "A discovery platform for the Solana ecosystem that helps developers and enthusiasts find, vote on, and showcase projects. Focused on performance, consistent state, and frictionless wallet authentication.",
     role: "Fullstack Engineer",
@@ -156,11 +156,11 @@ export const projects: IProject[] = [
     ],
   },
   { 
-    title: "SolanaHub", 
+    title: "SolaHub", 
     period: "May 2025 - Jun 2025", 
     description: "Community hub for Solana projects: listings, profiles and media uploads, with a typed Express API.", 
     role: "Fullstack Engineer", 
-    image: SolanaHub, 
+    image: SolaHub, 
     link: "https://solahub.online/", 
     stacks: ["React", "Node.js / Express", "TypeScript", "Prisma", "PostgreSQL", "Supabase", "Cloudinary"] 
   },
@@ -214,7 +214,7 @@ export const projects: IProject[] = [
   },
   {
     title: "TonBunnies",
-    period: "May 2023 - Sep 2023",
+    period: "May 2024 - Sep 2024",
     description:
       "A Web3 game on the TON blockchain with NFT collectibles, minting, ownership verification, and a Telegram Mini App.",
     role: "Web3 Frontend Engineer",
@@ -234,21 +234,21 @@ export const projects: IProject[] = [
       "JavaScript Canvas",
     ],
   },
-  {
-    title: "OneBeam",
-    period: "Sep 2025 – Nov 2025",
-    description:
-      "Early-stage event and ticketing platform focused on clear organizer and attendee experiences.",
-    role: "Frontend Engineer (Contract)",
-    contribution: [
-      "Built event creation flows and ticket template features.",
-      "Implemented event landing pages and key parts of the merchant dashboard.",
-      "Helped establish frontend structure and reusable UI patterns.",
-    ],
-    image: null,
-    link: null,
-    stacks: ["React", "TypeScript", "TailwindCSS"],
-  },
+  // {
+  //   title: "OneBeam",
+  //   period: "Sep 2025 – Nov 2025",
+  //   description:
+  //     "Early-stage event and ticketing platform focused on clear organizer and attendee experiences.",
+  //   role: "Frontend Engineer (Contract)",
+  //   contribution: [
+  //     "Built event creation flows and ticket template features.",
+  //     "Implemented event landing pages and key parts of the merchant dashboard.",
+  //     "Helped establish frontend structure and reusable UI patterns.",
+  //   ],
+  //   image: null,
+  //   link: null,
+  //   stacks: ["React", "TypeScript", "TailwindCSS"],
+  // },
 ];
 
 export const side_quests: IProject[] = [

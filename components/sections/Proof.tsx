@@ -47,7 +47,7 @@ const Proof = () => {
             rel="noreferrer"
             className="inline-flex items-center gap-2 rounded-full border border-border bg-secondary/50 px-5 py-2.5 text-sm font-medium text-foreground transition-colors duration-300 hover:bg-secondary"
           >
-            More recommendations on LinkedIn <span aria-hidden>↗</span>
+            View on LinkedIn <span aria-hidden>↗</span>
           </a>
         </div>
       </div>

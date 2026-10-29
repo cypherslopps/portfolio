@@ -158,7 +158,7 @@ export const projects: IProject[] = [
   
   {
     title: "CasinoBetil",
-    period: "Jun 2024 - Sep 2024",
+    period: "Jun 2024 - Nov 2024",
     description:
       "A real-money sports betting platform where speed and correctness directly affect user trust and retention.",
     role: "Senior Frontend Engineer",

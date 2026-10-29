@@ -13,8 +13,8 @@ const Contact = () => {
     >
       <SectionHeader
         headline="Get In Touch"
-        title="Have a project in mind? Reach out anytime."
-        description="Tell me what you're building and where it's stuck. I'll give you an honest read on it — and if we work well together, I'm open to projects, contracts and full-time roles."
+        title="Hiring, or building something?"
+        description="Either way, tell me what you're working on and I'll give you an honest read on where it's likely to break. If it looks like a fit, I can start immediately."
       />
 
       <div className="max-w-2xl mx-auto space-y-4 sm:space-y-7 lg:space-y-10">

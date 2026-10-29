@@ -70,7 +70,7 @@ export const contact = {
 export const socials: ISocial[] = [
   {
     title: "Github",
-    link: "https://github.com/cypherslopps",
+    link: "https://github.com/solidDev434",
     Icon: Icons.github,
   },
   {
@@ -155,41 +155,7 @@ export const projects: IProject[] = [
       "MongoDB",
     ],
   },
-  { 
-    title: "SolaHub", 
-    period: "May 2025 - Jun 2025", 
-    description: "Community hub for Solana projects: listings, profiles and media uploads, with a typed Express API.", 
-    role: "Fullstack Engineer", 
-    image: SolaHub, 
-    link: "https://solahub.online/", 
-    stacks: ["React", "Node.js / Express", "TypeScript", "Prisma", "PostgreSQL", "Supabase", "Cloudinary"] 
-  },
-  {
-    title: "XDegen",
-    period: "May 2025 – Jun 2026",
-    description:
-      "A decentralized learning and streaming platform for crypto and Web3 users. Built multi-step flows, live sessions, and reliable real-time notifications.",
-    role: "Frontend / Fullstack Engineer",
-    contribution: [
-      "Built multi-step academy/course creation flow with robust validation using React Hook Form and Zod.",
-      "Integrated Pinata (IPFS) for file uploads and Solana smart contracts for wallet-based payouts.",
-      "Implemented Livekit for live video sessions and scheduling.",
-      "Integrated Dialect for real-time, token-gated notifications reaching 1,000+ daily users.",
-    ],
-    image: XDegen,
-    link: "https://xdegen.xyz/",
-    stacks: [
-      "React (Vite) / TypeScript",
-      "React Hook Form",
-      "Zod",
-      "TailwindCSS",
-      "Pinata (IPFS)",
-      "Dialect",
-      "GetStream.io",
-      "Zustand",
-      "Supabase",
-    ],
-  },
+  
   {
     title: "CasinoBetil",
     period: "Jun 2024 - Sep 2024",
@@ -232,6 +198,41 @@ export const projects: IProject[] = [
       "Telegram Mini App SDK",
       "TailwindCSS",
       "JavaScript Canvas",
+    ],
+  },
+  { 
+    title: "SolaHub", 
+    period: "May 2025 - Jun 2025", 
+    description: "Community hub for Solana projects: listings, profiles and media uploads, with a typed Express API.", 
+    role: "Fullstack Engineer", 
+    image: SolaHub, 
+    link: "https://solahub.online/", 
+    stacks: ["React", "Node.js / Express", "TypeScript", "Prisma", "PostgreSQL", "Supabase", "Cloudinary"] 
+  },
+  {
+    title: "XDegen",
+    period: "May 2025 – Jun 2026",
+    description:
+      "A decentralized learning and streaming platform for crypto and Web3 users. Built multi-step flows, live sessions, and reliable real-time notifications.",
+    role: "Frontend / Fullstack Engineer",
+    contribution: [
+      "Built multi-step academy/course creation flow with robust validation using React Hook Form and Zod.",
+      "Integrated Pinata (IPFS) for file uploads and Solana smart contracts for wallet-based payouts.",
+      "Implemented Livekit for live video sessions and scheduling.",
+      "Integrated Dialect for real-time, token-gated notifications reaching 1,000+ daily users.",
+    ],
+    image: XDegen,
+    link: "https://xdegen.xyz/",
+    stacks: [
+      "React (Vite) / TypeScript",
+      "React Hook Form",
+      "Zod",
+      "TailwindCSS",
+      "Pinata (IPFS)",
+      "Dialect",
+      "GetStream.io",
+      "Zustand",
+      "Supabase",
     ],
   },
   // {

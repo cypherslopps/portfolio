@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Outfit, DM_Serif_Display } from "next/font/google";
-import { GoogleAnalytics } from "@next/third-parties/google";
+import { Analytics } from "@vercel/analytics/next";
 
 import "./globals.css";
 import Navigation from "@/components/Navigation";
@@ -82,7 +82,7 @@ export default function RootLayout({
         <Navigation />
         {children}
       </body>
-      <GoogleAnalytics gaId="YOUR_MEASUREMENT_ID" />
+      <Analytics />
     </html>
   );
 }

@@ -1,182 +1,171 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Image from "next/image";
+import { useState } from "react";
+import { motion, useReducedMotion } from "framer-motion";
 
+import { scrollToSection } from "@/lib/scrollTo";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { ArrowUpRight03FreeIcons } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
-import Image from "next/image";
-import { IProject } from "@/index";
 import { projects, side_quests } from "@/lib/constants";
 import SectionHeader from "../SectionHeader";
 import { cn } from "@/lib/utils";
+import { IProject } from "@/index";
 
-gsap.registerPlugin(ScrollTrigger);
+const tabs = ["Clients", "Personal"] as const;
+type Tab = (typeof tabs)[number];
 
-const ProjectBlock = ({ project }: { project: IProject }) => {
+
+const initials = (title: string) =>
+  title
+    .split(/\s+/)
+    .slice(0, 2)
+    .map((word) => word[0])
+    .join("")
+    .toUpperCase();
+
+const Thumb = ({ project }: { project: IProject }) =>
+  project.image ? (
+    <div className="relative aspect-[16/10] overflow-hidden border-b border-border bg-muted">
+      <Image
+        src={project.image}
+        alt={project.title}
+        fill
+        sizes="(max-width: 640px) 100vw, 50vw"
+        className="object-cover object-top transition-transform duration-700 ease-out group-hover/project:scale-[1.04]"
+      />
+    </div>
+  ) : (
+    <div className="thumb-fallback flex aspect-[16/10] items-center justify-center border-b border-border">
+      <span className="font-display text-6xl italic text-primary/80">
+        {initials(project.title)}
+      </span>
+    </div>
+  );
+
+const ProjectCard = ({
+  project,
+  index,
+  reduced,
+}: {
+  project: IProject;
+  index: number;
+  reduced: boolean;
+}) => {
+  const [expanded, setExpanded] = useState(false);
+  const hasDetails = !!project.contribution?.length;
+  const open = () =>
+    project.link ? window.open(project.link, "_blank", "noopener") : null;
+
   return (
-    <blockquote
-      onClick={() =>
-        project.link ? window.open(project.link, "_blank") : null
-      }
-      className="project-block bg-neutral-400/10 p-4 sm:px-8 sm:py-6 md:py-8 lg:py-8 cursor-pointer border-t last:border-b border-neutral-800 border-dotted flex flex-col justify-between group/project relative opacity-0 translate-y-10"
+    <motion.article
+      onClick={open}
+      className={cn(
+        "reveal-card group/project flex h-full flex-col overflow-hidden rounded-lg border border-border bg-card transition-[border-color,transform] duration-300",
+        project.link &&
+          "cursor-pointer hover:-translate-y-1 hover:border-primary/45",
+      )}
     >
-      <div className="absolute bottom-0 left-0 w-full h-0 group-hover/project:h-full transition-all duration-500 bg-background/50" />
-      <div className="relative space-y-5 lg:space-y-0">
-        {project.image && (
-          <div className="relative h-[15rem] lg:hidden">
-            <Image
-              src={project.image}
-              alt={project.title}
-              fill
-              sizes="(max-width: 1024px) 100vw, 15rem"
-              className="object-cover [background-position:top center] rounded-md"
-            />
-          </div>
-        )}
+      <Thumb project={project} />
 
-        <div className="flex items-center justify-between mt-5 lg:mt-0 lg:grid lg:grid-cols-[1fr_300px_max-content] lg:gap-8">
-          <div className="lg:group-hover/project:pl-4 transition-all duration-700 flex flex-col gap-y-2 sm:gap-y-3">
-            <header className="flex items-center justify-between sm:inline-block">
-              <div className="space-y-2">
-                <div className="space-y-1">
-                  <h3 className="text-[1.73rem] sm:text-4xl text-white font-bold">
-                    {project.title}
-                  </h3>
-                  <p className="text-base italic text-white/80">
-                    {project.role}
-                  </p>
-                </div>
-
-                <p>{project.description}</p>
-              </div>
-              <div className="sm:hidden lg:group-hover/project:pr-4 transition-all duration-700">
-                <HugeiconsIcon
-                  className="text-neutral-400 size-7"
-                  icon={ArrowUpRight03FreeIcons}
-                />
-              </div>
-            </header>
-
-            {/* Contributions */}
-            {project.contribution?.length && (
-              <div className="space-y-3">
-                <h5 className="font-semibold">Key contributions</h5>
-
-                <ul className="list-disc grid gap-y-2 pl-5">
-                  {project.contribution.map((c) => (
-                    <li key={c} className="text-sm text-white/80 leading-loose">
-                      {c}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
-
-            <div className="flex flex-col gap-y-2 sm:flex-row sm:gap-x-3 text-sm sm:items-center w-[100%] md:w-[115%]">
-              <span className="w-max inline-block relative after:absolute after:bottom-0 after:left-0 after:w-full after:h-[.2rem] after:bg-primary/70 after:rounded-full after:rotate-[-1deg]">
-                Technologies:
-              </span>
-              <div className="flex gap-x-1 gap-y-1 sm:gap-y-3 items-center flex-wrap">
-                {project.stacks?.length > 0 &&
-                  project.stacks.map((stack, idx) => (
-                    <span
-                      key={idx}
-                      className="text-xs md:text-md bg-[#222] shadow-sm shadow-neutral-900 rounded-md py-1 px-2"
-                    >
-                      {stack}
-                    </span>
-                  ))}
-              </div>
-            </div>
-          </div>
-
-          <div className="relative [perspective:800px] hidden lg:block">
-            {project.image && (
-              <div className="absolute w-[30rem] h-[15rem] top-1/2 -translate-y-1/2 right-5 opacity-0 scale-50 group-hover/project:opacity-100 lg:group-hover/project:scale-100 transition-all duration-500 z-10 rounded-md">
-                <Image
-                  src={project.image}
-                  alt={project.title}
-                  fill
-                  sizes="30rem"
-                  className="object-cover rounded-md"
-                />
-              </div>
-            )}
+      <div className="flex flex-1 flex-col gap-y-4 p-5 sm:p-6">
+        <header className="flex items-start justify-between gap-4">
+          <div className="space-y-1">
+            <h3 className="text-xl font-bold text-foreground sm:text-2xl">
+              {project.link ? (
+                <a
+                  href={project.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={(e) => e.stopPropagation()}
+                  className="transition-colors hover:text-primary"
+                >
+                  {project.title}
+                </a>
+              ) : (
+                project.title
+              )}
+            </h3>
+            <p className="text-sm italic text-muted-foreground">
+              {project.role}
+              {project.period && (
+                <span className="not-italic"> · {project.period}</span>
+              )}
+            </p>
           </div>
 
           {project.link && (
-            <div className="hidden sm:inline-block lg:group-hover/project:pr-4 transition-all duration-700">
-              <HugeiconsIcon
-                className="text-neutral-400 size-7"
-                icon={ArrowUpRight03FreeIcons}
-              />
-            </div>
+            <span
+              aria-hidden
+              className="mt-1 shrink-0 rounded-md border border-border p-1.5 text-muted-foreground transition-colors duration-300 group-hover/project:border-primary/45 group-hover/project:text-primary"
+            >
+              <HugeiconsIcon icon={ArrowUpRight03FreeIcons} className="size-4" />
+            </span>
           )}
+        </header>
+
+        {project.description && (
+          <p className={cn("text-[15px] leading-relaxed text-muted-foreground", !expanded && "line-clamp-3")}>
+            {project.description}
+          </p>
+        )}
+
+        {hasDetails && expanded ? (
+          <div className="space-y-2">
+            <h4 className="text-xs font-semibold tracking-wide text-muted-foreground uppercase">
+              What I built
+            </h4>
+            <ul className="list-disc space-y-1.5 pl-4 marker:text-primary/60">
+              {project.contribution!.map((c) => (
+                <li
+                  key={c}
+                  className="text-sm leading-relaxed text-foreground/85"
+                >
+                  {c}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ) : null}
+
+        <div className="mt-auto flex flex-wrap gap-1.5 pt-1">
+          {project.stacks?.map((stack) => (
+            <span
+              key={stack}
+              className="rounded-md border border-border bg-secondary px-2 py-0.5 text-xs text-muted-foreground"
+            >
+              {stack}
+            </span>
+          ))}
         </div>
+        {(hasDetails || (project.description?.length ?? 0) > 140) && (
+          <button
+            type="button"
+            aria-expanded={expanded}
+            onClick={(e) => {
+              e.stopPropagation();
+              setExpanded((v) => !v);
+            }}
+            className="w-max text-sm font-medium text-primary transition-colors hover:text-foreground"
+          >
+            {expanded ? "Show less" : "What I built →"}
+          </button>
+        )}
       </div>
-    </blockquote>
+    </motion.article>
   );
 };
 
-const tabs = ["Clients", "Side Projects"] as const;
+const INITIAL = 4;
 
 const Projects = () => {
-  const [activeTab, setActiveTab] = useState<(typeof tabs)[number]>("Clients");
+  const [activeTab, setActiveTab] = useState<Tab>("Clients");
+  const reduced = !!useReducedMotion();
+  const [showAll, setShowAll] = useState(false);
+  const gridRef = useScrollReveal<HTMLDivElement>([activeTab, showAll]);
 
   const displayedProjects = activeTab === "Clients" ? projects : side_quests;
-
-  useEffect(() => {
-    // Kill any old triggers
-    ScrollTrigger.getAll().forEach((t) => t.kill());
-
-    const blocks = gsap.utils.toArray<HTMLElement>(".project-block");
-
-    // Reset and animate
-    gsap.set(blocks, { opacity: 0, y: 40 });
-
-    gsap.to(blocks, {
-      opacity: 1,
-      y: 0,
-      stagger: 0.12,
-      duration: 0.9,
-      ease: "power3.out",
-    });
-
-    ScrollTrigger.batch(blocks, {
-      start: "top 85%",
-      end: "bottom 20%",
-      onEnter: (batch) => {
-        gsap.to(batch, {
-          opacity: 1,
-          y: 0,
-          duration: 1.2,
-          stagger: 0.15,
-          ease: "power3.out",
-          overwrite: "auto",
-        });
-      },
-      onLeaveBack: (batch) => {
-        gsap.to(batch, {
-          opacity: 0,
-          y: 40,
-          duration: 0.7,
-          stagger: 0.08,
-          ease: "power3.in",
-          overwrite: "auto",
-        });
-      },
-      interval: 0.1,
-      batchMax: 4,
-    });
-
-    ScrollTrigger.refresh();
-
-    return () => {
-      ScrollTrigger.getAll().forEach((t) => t.kill());
-    };
-  }, [activeTab]); // Re-run animation when tab changes
 
   return (
     <section id="projects" className="wrapper space-y-10 pb-16 lg:pt-10">
@@ -184,31 +173,74 @@ const Projects = () => {
         <SectionHeader headline="Real-World Results" title="My Projects" />
 
         {/* Tabs */}
-        <div className="flex gap-x-6 mt-10 sm:mt-14">
-          {tabs.map((tab) => (
-            <button
-              key={tab}
-              onClick={() => setActiveTab(tab)}
-              className={cn(
-                "text-lg cursor-pointer transition-all duration-300 relative pb-1",
-                activeTab === tab
-                  ? "text-primary font-bold after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-primary"
-                  : "text-neutral-400 font-medium hover:text-neutral-200",
-              )}
-            >
-              {tab}
-            </button>
-          ))}
+        <div className="mt-10 flex justify-center sm:mt-14">
+          <div
+            role="tablist"
+            aria-label="Project categories"
+            className="inline-flex rounded-full border border-border bg-card p-1"
+          >
+            {tabs.map((tab) => {
+              const active = activeTab === tab;
+              return (
+                <button
+                  key={tab}
+                  role="tab"
+                  aria-selected={active}
+                  onClick={() => {
+                    setActiveTab(tab);
+                    setShowAll(false);
+                  }}
+                  className={cn(
+                    "relative rounded-full px-5 py-2 text-sm font-medium transition-colors duration-300",
+                    active
+                      ? "text-brand-foreground"
+                      : "text-muted-foreground hover:text-foreground",
+                  )}
+                >
+                  {active && (
+                    <motion.span
+                      layoutId="project-tab-pill"
+                      className="absolute inset-0 rounded-full bg-brand"
+                      transition={{ type: "spring", stiffness: 400, damping: 34 }}
+                    />
+                  )}
+                  <span className="relative z-10">{tab}</span>
+                </button>
+              );
+            })}
+          </div>
         </div>
       </div>
 
-      <div className="w-full mt-8 bg-[#0a0b0d]">
-        <div className="w-full relative grid grid-cols-1">
-          {displayedProjects.map((project) => (
-            <ProjectBlock key={project.title} project={project} />
-          ))}
-        </div>
+      <div
+        key={activeTab}
+        ref={gridRef}
+        className="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:gap-6"
+      >
+        {(showAll ? displayedProjects : displayedProjects.slice(0, INITIAL)).map((project, index) => (
+          <ProjectCard
+            key={project.title}
+            project={project}
+            index={index}
+            reduced={reduced}
+          />
+        ))}
       </div>
+
+      {displayedProjects.length > INITIAL && (
+        <div className="flex justify-center">
+          <button
+            type="button"
+            onClick={() => {
+              if (showAll) scrollToSection("#projects", { offset: -80 });
+              setShowAll((v) => !v);
+            }}
+            className="rounded-full border border-border bg-card px-6 py-2.5 text-sm font-medium text-foreground transition-colors hover:border-primary/45"
+          >
+            {showAll ? "Show fewer projects" : `Show all ${displayedProjects.length} projects`}
+          </button>
+        </div>
+      )}
     </section>
   );
 };

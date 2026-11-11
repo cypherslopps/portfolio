@@ -16,10 +16,16 @@ type IProject = {
   contribution?: string[];
   link: string | null;
   stacks: string[];
+  period: string;
 };
 
 type IService = {
   Icon: IconSvgElement;
   title: string;
   description: string;
+};
+
+type IClientContact = {
+  label: string
+  value: "email" | "whatsapp"
 };

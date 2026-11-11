@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Outfit, DM_Serif_Display } from "next/font/google";
+import { GoogleAnalytics } from "@next/third-parties/google";
+
 import "./globals.css";
 import Navigation from "@/components/Navigation";
 
@@ -55,13 +57,13 @@ export const metadata: Metadata = {
 };
 
 const outfit = Outfit({
-  subsets: ['latin']
-})
+  subsets: ["latin"],
+});
 
 const dm_serif_display = DM_Serif_Display({
-  subsets: ['latin'],
-  weight: '400'
-})
+  subsets: ["latin"],
+  weight: "400",
+});
 
 export default function RootLayout({
   children,
@@ -69,7 +71,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html 
+    <html
       lang="en"
       className={`${outfit.className} ${dm_serif_display.className}`}
     >
@@ -80,6 +82,7 @@ export default function RootLayout({
         <Navigation />
         {children}
       </body>
+      <GoogleAnalytics gaId="YOUR_MEASUREMENT_ID" />
     </html>
   );
 }

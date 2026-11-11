@@ -16,6 +16,7 @@ type IProject = {
   contribution?: string[];
   link: string | null;
   stacks: string[];
+  result?: string;
   period: string;
 };
 
@@ -26,6 +27,6 @@ type IService = {
 };
 
 type IClientContact = {
-  label: string
-  value: "email" | "whatsapp"
+  label: string;
+  value: "email" | "whatsapp";
 };

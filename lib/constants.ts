@@ -2,7 +2,7 @@ import {
   CodeIcon,
   BlockGameIcon,
   LaptopIcon,
-  ServerStackIcon
+  ServerStackIcon,
 } from "@hugeicons/core-free-icons";
 import Icons from "@/components/Icons";
 
@@ -64,7 +64,7 @@ export const contact = {
   region: "Uyo, Akwa Ibom - Nigeria",
   mail: "josephibok75@gmail.com",
   name: "Joseph Ibok",
-  linkedin: "https://linkedin.com/in/joseph-ibok"
+  linkedin: "https://linkedin.com/in/joseph-ibok",
 };
 
 export const socials: ISocial[] = [
@@ -102,7 +102,7 @@ export const testimonials = [
       "Joseph is an exceptional senior front-end developer. His adeptness at handling complex tasks, learning from every challenge, and solving tough problems, combined with excellent communication, makes him an absolute pleasure to work with.",
     name: "Abasifreke James",
     role: "Software Engineer",
-  }
+  },
 ];
 
 export const projects: IProject[] = [
@@ -155,7 +155,6 @@ export const projects: IProject[] = [
       "MongoDB",
     ],
   },
-  
   {
     title: "CasinoBetil",
     period: "Jun 2024 - Nov 2024",
@@ -200,14 +199,23 @@ export const projects: IProject[] = [
       "JavaScript Canvas",
     ],
   },
-  { 
-    title: "SolaHub", 
-    period: "May 2025 - Jun 2025", 
-    description: "Community hub for Solana projects: listings, profiles and media uploads, with a typed Express API.", 
-    role: "Fullstack Engineer", 
-    image: SolaHub, 
-    link: "https://solahub.online/", 
-    stacks: ["React", "Node.js / Express", "TypeScript", "Prisma", "PostgreSQL", "Supabase", "Cloudinary"] 
+  {
+    title: "SolaHub",
+    period: "May 2025 - Jun 2025",
+    description:
+      "Community hub for Solana projects: listings, profiles and media uploads, with a typed Express API.",
+    role: "Fullstack Engineer",
+    image: SolaHub,
+    link: null,
+    stacks: [
+      "React",
+      "Node.js / Express",
+      "TypeScript",
+      "Prisma",
+      "PostgreSQL",
+      "Supabase",
+      "Cloudinary",
+    ],
   },
   {
     title: "XDegen",
@@ -222,7 +230,7 @@ export const projects: IProject[] = [
       "Integrated Dialect for real-time, token-gated notifications reaching 1,000+ daily users.",
     ],
     image: XDegen,
-    link: "https://xdegen.xyz/",
+    link: null,
     stacks: [
       "React (Vite) / TypeScript",
       "React Hook Form",
@@ -311,34 +319,46 @@ export const side_quests: IProject[] = [
       "Lucide React",
     ],
   },
-  { 
-    title: "zkMinter", 
-    period: "2025", 
-    description: "Mint compressed tokens on Solana using ZK Light Protocol, with metadata pinned to IPFS.", 
-    role: "Frontend Engineer", 
-    image: ZkMinter, 
-    link: "https://zk-sol-minter.vercel.app/", 
-    stacks: ["Next.js", "Solana Web3.js", "ZK Light Protocol", "Supabase", "Pinata"] },
-  { 
-    title: "Ballot", 
-    period: "2025", 
-    description: "On-chain voting app on Solana: create polls, connect a wallet, vote with animated results.", 
-    role: "Frontend Engineer", 
-    image: Ballot, 
-    link: "https://ballot-pink.vercel.app/", 
-    stacks: ["React (Vite)", "Solana Web3.js", "GSAP", "TailwindCSS"] },
-  { 
-    title: "Scraper", 
-    period: "2024", 
-    description: "Headless Selenium scraper with a small Express API for scheduled data pulls.", 
-    role: "Backend Engineer", 
-    image: null, 
-    link: "https://github.com/cypherslopps/nodejs-scraper", 
-    stacks: ["Node.js / Express", "Selenium WebDriver"] },
+  {
+    title: "zkMinter",
+    period: "2025",
+    description:
+      "Mint compressed tokens on Solana using ZK Light Protocol, with metadata pinned to IPFS.",
+    role: "Frontend Engineer",
+    image: ZkMinter,
+    link: "https://zk-sol-minter.vercel.app/",
+    stacks: [
+      "Next.js",
+      "Solana Web3.js",
+      "ZK Light Protocol",
+      "Supabase",
+      "Pinata",
+    ],
+  },
+  {
+    title: "Ballot",
+    period: "2025",
+    description:
+      "On-chain voting app on Solana: create polls, connect a wallet, vote with animated results.",
+    role: "Frontend Engineer",
+    image: Ballot,
+    link: "https://ballot-pink.vercel.app/",
+    stacks: ["React (Vite)", "Solana Web3.js", "GSAP", "TailwindCSS"],
+  },
+  {
+    title: "Scraper",
+    period: "2024",
+    description:
+      "Headless Selenium scraper with a small Express API for scheduled data pulls.",
+    role: "Backend Engineer",
+    image: null,
+    link: "https://github.com/cypherslopps/nodejs-scraper",
+    stacks: ["Node.js / Express", "Selenium WebDriver"],
+  },
 ];
 
 export const resumeLink =
-  "https://drive.google.com/drive/u/1/folders/1N_CVMEw0ATbM64ycfYSBiYGyUZpzUR_k";
+  "https://drive.google.com/drive/folders/1N_CVMEw0ATbM64ycfYSBiYGyUZpzUR_k?usp=drive_link";
 export const businessWhatsappLink = "https://wa.me/2348157483352";
 export const businessMail = "mailto:josephibok75@gmail.com";
 

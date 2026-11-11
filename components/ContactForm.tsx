@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useFormik } from "formik";
+import { track } from "@vercel/analytics";
 import { toFormikValidationSchema } from "zod-formik-adapter";
 import { z } from "zod";
 import { Button } from "./ui/button";
@@ -12,22 +13,28 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select"
+} from "@/components/ui/select";
 import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
 import { cn } from "@/lib/utils";
 import { IClientContact } from "..";
 
-const duration = ["How soon?", "1-2 weeks", "2-4 weeks", "1-2 months", "Flexible"];
+const duration = [
+  "How soon?",
+  "1-2 weeks",
+  "2-4 weeks",
+  "1-2 months",
+  "Flexible",
+];
 const client_contact: IClientContact[] = [
   {
     label: "Email",
-    value: "email"
+    value: "email",
   },
   {
     label: "Phone / WhatsApp Number",
-    value: "whatsapp"
-  }
+    value: "whatsapp",
+  },
 ];
 
 const items = [
@@ -35,17 +42,23 @@ const items = [
   { label: "1-2 weeks", value: "1-2 weeks" },
   { label: "2-4 weeks", value: "2-4 weeks" },
   { label: "1-2 months", value: "1-2 months" },
-  { label: "Flexible", value: "flexible" }
-]
+  { label: "Flexible", value: "flexible" },
+];
 
 const contactSchema = z.object({
-  name: z
-    .string({ message: "Please in your name" }),
-  email: z.string({ message: "Please fill in your email" }).email("Please enter a valid email address").optional(),
-  whatsapp: z.string({ message: "Please fill in your WhatsApp number" }).optional(),
+  name: z.string({ message: "Please in your name" }),
+  email: z
+    .string({ message: "Please fill in your email" })
+    .email("Please enter a valid email address")
+    .optional(),
+  whatsapp: z
+    .string({ message: "Please fill in your WhatsApp number" })
+    .optional(),
   subject: z.string().max(100, "Subject is too long").optional(),
   budget: z.string().max(100, "Subject is too long").optional(),
-  duration: z.enum(duration, { message: "Please select project duration." }).exclude(["How soon?"]),
+  duration: z
+    .enum(duration, { message: "Please select project duration." })
+    .exclude(["How soon?"]),
   message: z
     .string({ message: "Please write a description about your project." })
     .min(10, "Message must be at least 10 characters")
@@ -54,11 +67,16 @@ const contactSchema = z.object({
 
 type ContactFormValues = z.infer<typeof contactSchema>;
 
-const intents = ["A project", "A full-time role", "A contract role", "Just saying hi"];
+const intents = [
+  "A project",
+  "A full-time role",
+  "A contract role",
+  "Just saying hi",
+];
 
 export function ContactForm() {
   const [intent, setIntent] = useState<string>("A project");
-  const [contact, setContact] = useState<IClientContact["value"]>("email")
+  const [contact, setContact] = useState<IClientContact["value"]>("email");
   const [status, setStatus] = useState<
     "idle" | "loading" | "success" | "error"
   >("idle");
@@ -78,8 +96,13 @@ export function ContactForm() {
       setStatus("loading");
 
       try {
+        track(
+          `${values.name ?? ""} ${values.email ?? ""} accessed contact form`,
+        );
         const formData = new FormData();
-        Object.entries(values).map(([key, value]) => value && formData.append(key, value))
+        Object.entries(values).map(
+          ([key, value]) => value && formData.append(key, value),
+        );
         formData.append("intent", intent);
         formData.append(
           "access_key",
@@ -106,7 +129,9 @@ export function ContactForm() {
   return (
     <form onSubmit={formik.handleSubmit} className="w-full space-y-5">
       <div>
-        <p className="mb-2 text-sm text-muted-foreground">{"I'd"} like to talk about…</p>
+        <p className="mb-2 text-sm text-muted-foreground">
+          {"I'd"} like to talk about…
+        </p>
         <div className="flex flex-wrap gap-2">
           {intents.map((i) => (
             <Button
@@ -116,7 +141,9 @@ export function ContactForm() {
               key={i}
               onClick={() => setIntent(i)}
               className={`rounded-full border px-4 py-1.5 text-sm transition-colors cursor-pointer ${
-                intent === i ? "border-primary bg-primary text-primary-foreground" : "border-border hover:bg-secondary"
+                intent === i
+                  ? "border-primary bg-primary text-primary-foreground"
+                  : "border-border hover:bg-secondary"
               }`}
             >
               {i}
@@ -136,7 +163,9 @@ export function ContactForm() {
           className="w-full px-4 py-3 rounded-lg bg-secondary/50 border border-border focus:border-primary outline-none transition"
         />
         {formik.touched.name && formik.errors.name && (
-          <p className="mt-1.5 text-sm text-destructive">{formik.errors.name}</p>
+          <p className="mt-1.5 text-sm text-destructive">
+            {formik.errors.name}
+          </p>
         )}
       </div>
 
@@ -147,11 +176,11 @@ export function ContactForm() {
               key={label}
               onClick={() => {
                 formik.setFieldValue(contact, "");
-                setContact(value)
+                setContact(value);
               }}
               className={cn(
                 "text-sm rounded-full cursor-pointer py-1 px-2",
-                contact === value ? "bg-lilac text-black" : "text-white"
+                contact === value ? "bg-lilac text-black" : "text-white",
               )}
             >
               {label}
@@ -171,7 +200,9 @@ export function ContactForm() {
               className="w-full px-4 py-3 rounded-lg bg-secondary/50 border border-border focus:border-primary outline-none transition"
             />
             {formik.touched.email && formik.errors.email && (
-              <p className="mt-1.5 text-sm text-destructive">{formik.errors.email}</p>
+              <p className="mt-1.5 text-sm text-destructive">
+                {formik.errors.email}
+              </p>
             )}
           </div>
         )}
@@ -188,7 +219,9 @@ export function ContactForm() {
               className="w-full px-4 py-3 rounded-lg bg-secondary/50 border border-border focus:border-primary outline-none transition"
             />
             {formik.touched.whatsapp && formik.errors.whatsapp && (
-              <p className="mt-1.5 text-sm text-destructive">{formik.errors.whatsapp}</p>
+              <p className="mt-1.5 text-sm text-destructive">
+                {formik.errors.whatsapp}
+              </p>
             )}
           </div>
         )}
@@ -205,7 +238,9 @@ export function ContactForm() {
           className="w-full px-4 py-3 rounded-lg bg-secondary/50 border border-border focus:border-primary outline-none transition"
         />
         {formik.touched.subject && formik.errors.subject && (
-          <p className="mt-1.5 text-sm text-destructive">{formik.errors.subject}</p>
+          <p className="mt-1.5 text-sm text-destructive">
+            {formik.errors.subject}
+          </p>
         )}
       </div>
 
@@ -219,29 +254,37 @@ export function ContactForm() {
           onBlur={formik.handleBlur}
         />
         {formik.touched.subject && formik.errors.subject && (
-          <p className="mt-1.5 text-sm text-destructive">{formik.errors.subject}</p>
+          <p className="mt-1.5 text-sm text-destructive">
+            {formik.errors.subject}
+          </p>
         )}
-        <span className="text-zinc-500 text-xs block mt-1.5">Not sure? Leave blank</span>
+        <span className="text-zinc-500 text-xs block mt-1.5">
+          Not sure? Leave blank
+        </span>
       </div>
 
       <div>
-         <Select
+        <Select
           name="duration"
           value={formik.values.duration}
           onValueChange={(value) => formik.setFieldValue("duration", value)}
-          onOpenChange={open => !open && formik.setFieldTouched("duration", true)}
-         >
-          <SelectTrigger 
+          onOpenChange={(open) =>
+            !open && formik.setFieldTouched("duration", true)
+          }
+        >
+          <SelectTrigger
             id="duration"
             className={cn(
               "w-full bg-secondary/50 border focus:border-primary rounded-lg !h-12",
-              formik.errors.duration && formik.touched.duration ? "border-destructive" : "border-border"
-            )} 
+              formik.errors.duration && formik.touched.duration
+                ? "border-destructive"
+                : "border-border",
+            )}
             aria-label="Project timeline"
           >
-            <SelectValue 
-              placeholder="Project timeline" 
-              className="placeholder:text-lg" 
+            <SelectValue
+              placeholder="Project timeline"
+              className="placeholder:text-lg"
             />
           </SelectTrigger>
           <SelectContent>
@@ -253,7 +296,9 @@ export function ContactForm() {
           </SelectContent>
         </Select>
         {formik.touched.duration && formik.errors.duration && (
-          <p className="mt-1.5 text-sm text-destructive">{formik.errors.duration}</p>
+          <p className="mt-1.5 text-sm text-destructive">
+            {formik.errors.duration}
+          </p>
         )}
       </div>
 
@@ -268,7 +313,9 @@ export function ContactForm() {
           className="w-full px-4 py-3 rounded-xl bg-secondary/50 border border-border focus:border-primary outline-none transition resize-none"
         />
         {formik.touched.message && formik.errors.message && (
-          <p className="mt-1.5 text-sm text-destructive">{formik.errors.message}</p>
+          <p className="mt-1.5 text-sm text-destructive">
+            {formik.errors.message}
+          </p>
         )}
       </div>
 

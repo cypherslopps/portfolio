@@ -101,7 +101,7 @@ export const projects: IProject[] = [
       "Used Redis for session management and caching to keep returning users fast and authenticated under load.",
     ],
     image: Clubonline247,
-    link: "app.clubonline247.com",
+    link: "https://app.clubonline247.com",
     stacks: [
       "Nest.js / TypeScript",
       "Stripe Connect",
